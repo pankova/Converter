@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct UnitConverterView: View {
-
-    @Binding var segment: any UnitSegment
+    @State var initialIndex: Int = 0
+    @State var goalIndex: Int = 1
+//    @State var value: Double
+    @State var segment: any UnitSegment
 
     let service = ConverterService()
     
     var body: some View {
         VStack(spacing: 4) {
-            SegmentView(segments: allSegments, selected: segment)
+            SegmentView(segments: allSegments, selected: $segment)
             HStack {
-                UnitsView(unitData: segment.unitRowsdata)
-                UnitsView(unitData: segment.unitRowsdata)
+                UnitsView(unitData: segment.unitRowsdata, activeIndex: $initialIndex)
+                UnitsView(unitData: segment.unitRowsdata, activeIndex: $goalIndex)
             }
             ButtonPadView()
         }
@@ -28,6 +30,6 @@ struct UnitConverterView: View {
 
 struct UnitConverterView_Previews: PreviewProvider {
     static var previews: some View {
-        UnitConverterView(segment: .constant(MassSegment()))
+        UnitConverterView(segment: MassSegment())
     }
 }

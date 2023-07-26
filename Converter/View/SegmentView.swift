@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SegmentView: View {
     var segments: [any UnitSegment]
-    @State var selected: any UnitSegment
+    @Binding var selected: any UnitSegment
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -44,6 +44,6 @@ struct SegmentView: View {
 
 struct SegmentView_Previews: PreviewProvider {
     static var previews: some View {
-        SegmentView(segments: [allSegments], selected: MassSegment())
+        SegmentView(segments: allSegments, selected: .constant(MassSegment()))
     }
 }
