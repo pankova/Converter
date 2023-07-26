@@ -7,24 +7,19 @@
 
 import SwiftUI
 
-enum Segment: String, CaseIterable {
-    case weight, length, temperature, currency, distance, area
-}
-
 struct SegmentView: View {
-    var segments: [Segment]
-    @State var selected: Segment
+    var segments: [any UnitSegment]
+    @State var selected: any UnitSegment
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             ScrollViewReader { proxy in
                 HStack {
-                    ForEach(segments, id: \.self) { segment in
+                    ForEach(segments, id: \.title) { segment in
                         ZStack {
-                            Text(segment.rawValue.capitalized)
-                                .id(segment)
+                            Text(segment.title)
                                 .padding(6)
-                                .background(selected == segment ? .green : .white)
+                                .background(selected.title == segment.title ? .green : .white)
                                 .cornerRadius(8)
                                 .clipShape(ContainerRelativeShape())
                                 .gesture(
@@ -39,7 +34,7 @@ struct SegmentView: View {
                         }
                     }
                 }
-                .padding(Constants.padding)
+                .padding(Padding.inner)
             }
             .background(.gray)
         }
@@ -49,6 +44,6 @@ struct SegmentView: View {
 
 struct SegmentView_Previews: PreviewProvider {
     static var previews: some View {
-        SegmentView(segments: Segment.allCases, selected: .weight)
+        SegmentView(segments: [allSegments], selected: MassSegment())
     }
 }

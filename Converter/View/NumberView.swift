@@ -25,7 +25,11 @@ struct NumberView: View {
         let screenWidth = UIScreen.main.bounds.width
         let buttonCount: CGFloat = 4.0
         let spacingCount = buttonCount + 1
-        return (screenWidth - (spacingCount * Constants.padding)) / buttonCount
+        return (
+            screenWidth
+            - (spacingCount * Padding.inner)
+            - Padding.screen * 2
+        ) / buttonCount
     }
 }
 

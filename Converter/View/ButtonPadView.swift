@@ -19,9 +19,9 @@ struct ButtonPadView: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: Constants.padding) {
+        VStack(alignment: .leading, spacing: Padding.inner) {
             ForEach(buttonTypes, id: \.self) { row in
-                HStack(spacing: Constants.padding) {
+                HStack(spacing: Padding.inner) {
                     ForEach(row,  id: \.self) { buttonType in
                         NumberView(buttonType: buttonType)
                     }
