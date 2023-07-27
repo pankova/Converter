@@ -10,7 +10,7 @@ import SwiftUI
 struct UnitConverterView: View {
     @State var initialIndex: Int = 0
     @State var goalIndex: Int = 1
-//    @State var value: Double
+    @State var value: String = ""
     @State var segment: any UnitSegment
 
     let service = ConverterService()
@@ -22,9 +22,13 @@ struct UnitConverterView: View {
                 UnitsView(unitData: segment.unitRowsdata, activeIndex: $initialIndex)
                 UnitsView(unitData: segment.unitRowsdata, activeIndex: $goalIndex)
             }
-            ButtonPadView()
+            ButtonPadView(value: $value, reverseAction: reverse)
         }
         .background(Color.pink.opacity(0.1))
+    }
+
+    func reverse() {
+        swap(&initialIndex, &goalIndex)
     }
 }
 

@@ -9,9 +9,10 @@ import SwiftUI
 
 struct NumberView: View {
     let buttonType: ButtonType
+    let action: VoidBlock
 
     var body: some View {
-        Button(buttonType.description) { }
+        Button(buttonType.description) { action() }
             .buttonStyle(
                 ButtonPadStyle(
                     size: buttonSize(),
@@ -35,6 +36,6 @@ struct NumberView: View {
 
 struct NumberView_Previews: PreviewProvider {
     static var previews: some View {
-        NumberView(buttonType: .reverse)
+        NumberView(buttonType: .reverse, action: { })
     }
 }

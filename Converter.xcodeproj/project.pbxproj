@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4412553E2A721DCF00858ADE /* VoidBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412553D2A721DCF00858ADE /* VoidBlock.swift */; };
 		4455A49B2A69E07000849DB8 /* AdaptivePagingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A49A2A69E07000849DB8 /* AdaptivePagingScrollView.swift */; };
 		4455A49D2A69E08B00849DB8 /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A49C2A69E08B00849DB8 /* Orientation.swift */; };
 		4455A49F2A69E09D00849DB8 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A49E2A69E09D00849DB8 /* View+Ext.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4412553D2A721DCF00858ADE /* VoidBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidBlock.swift; sourceTree = "<group>"; };
 		4455A49A2A69E07000849DB8 /* AdaptivePagingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptivePagingScrollView.swift; sourceTree = "<group>"; };
 		4455A49C2A69E08B00849DB8 /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		4455A49E2A69E09D00849DB8 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
@@ -127,6 +129,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4412553C2A721DC600858ADE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4412553D2A721DCF00858ADE /* VoidBlock.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		4455A4952A69E00300849DB8 /* Scrolls */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +175,7 @@
 		4457AB8F2A5B38B500EA547C /* Converter */ = {
 			isa = PBXGroup;
 			children = (
+				4412553C2A721DC600858ADE /* Utils */,
 				4462286C2A705C7500D04CE6 /* Computing */,
 				4455A4952A69E00300849DB8 /* Scrolls */,
 				448834A02A5BA38300B87509 /* View */,
@@ -392,6 +403,7 @@
 				4455A4A72A69E18A00849DB8 /* UnitView.swift in Sources */,
 				4462286E2A705C9000D04CE6 /* ConverterService.swift in Sources */,
 				4457ABBB2A5B442C00EA547C /* SegmentView.swift in Sources */,
+				4412553E2A721DCF00858ADE /* VoidBlock.swift in Sources */,
 				4455A4A92A69E18A00849DB8 /* UnitRow.swift in Sources */,
 				4455A4A62A69E18A00849DB8 /* UnitRowsData.swift in Sources */,
 				448834A62A5BA4DE00B87509 /* ButtonType.swift in Sources */,

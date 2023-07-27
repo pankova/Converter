@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ButtonPadView: View {
+    @Binding var value: String
+    var reverseAction: VoidBlock?
 
     var buttonTypes: [[ButtonType]] {
         [
@@ -23,11 +25,43 @@ struct ButtonPadView: View {
             ForEach(buttonTypes, id: \.self) { row in
                 HStack(spacing: Padding.inner) {
                     ForEach(row,  id: \.self) { buttonType in
-                        NumberView(buttonType: buttonType)
+                        NumberView(
+                            buttonType: buttonType,
+                            action: action(for: buttonType)
+                        )
                     }
                 }
             }
         }
+    }
+
+    func action(for buttonType: ButtonType) -> VoidBlock {
+        switch buttonType {
+        case .clearSymbol:
+            return clearSymbol
+        case .clearAll:
+            return clear
+        case .reverse:
+            return reverse
+        default:
+            return { addDigit(buttonType) }
+        }
+    }
+
+    func addDigit(_ buttonType: ButtonType) {
+        value += buttonType.description
+    }
+
+    func reverse() {
+        reverseAction?()
+    }
+
+    func clearSymbol() {
+        value.removeLast()
+    }
+
+    func clear() {
+        value = ""
     }
 }
 
