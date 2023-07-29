@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4412553E2A721DCF00858ADE /* VoidBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412553D2A721DCF00858ADE /* VoidBlock.swift */; };
+		441255442A7502CD00858ADE /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441255432A7502CD00858ADE /* String+Extension.swift */; };
 		4455A49B2A69E07000849DB8 /* AdaptivePagingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A49A2A69E07000849DB8 /* AdaptivePagingScrollView.swift */; };
 		4455A49D2A69E08B00849DB8 /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A49C2A69E08B00849DB8 /* Orientation.swift */; };
 		4455A49F2A69E09D00849DB8 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A49E2A69E09D00849DB8 /* View+Ext.swift */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		4412553D2A721DCF00858ADE /* VoidBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidBlock.swift; sourceTree = "<group>"; };
+		441255432A7502CD00858ADE /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		4455A49A2A69E07000849DB8 /* AdaptivePagingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptivePagingScrollView.swift; sourceTree = "<group>"; };
 		4455A49C2A69E08B00849DB8 /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		4455A49E2A69E09D00849DB8 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				4412553D2A721DCF00858ADE /* VoidBlock.swift */,
+				441255432A7502CD00858ADE /* String+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				4462288E2A71908800D04CE6 /* LengthSegment.swift in Sources */,
 				4457AB912A5B38B500EA547C /* ConverterApp.swift in Sources */,
 				446228862A71904500D04CE6 /* SpeedSegment.swift in Sources */,
+				441255442A7502CD00858ADE /* String+Extension.swift in Sources */,
 				44FC5B792A719C080000A5AD /* MeasurementFormatter+Extension.swift in Sources */,
 				4457ABC32A5B448100EA547C /* UnselectedUnitView.swift in Sources */,
 				448834A22A5BA3A600B87509 /* NumberView.swift in Sources */,

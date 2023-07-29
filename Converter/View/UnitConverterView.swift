@@ -20,8 +20,17 @@ struct UnitConverterView: View {
         VStack(spacing: 4) {
             SegmentView(segments: allSegments, selected: $segment)
             HStack {
-                UnitsView(unitData: segment.unitRowsdata, activeIndex: $initialIndex, value: $value)
-                UnitsView(unitData: segment.unitRowsdata, activeIndex: $goalIndex, value: $convertedValue)
+                UnitsView(
+                    unitData: segment.unitRowsdata,
+                    activeIndex: $initialIndex,
+                    value: $value,
+                    onChangeActiveIndex: convert
+                )
+                UnitsView(
+                    unitData: segment.unitRowsdata,
+                    activeIndex: $goalIndex,
+                    value: $convertedValue,
+                    onChangeActiveIndex: convert)
             }
             ButtonPadView(value: $value, reverseAction: reverse)
         }
@@ -29,21 +38,32 @@ struct UnitConverterView: View {
         .background(Color.pink.opacity(0.1))
     }
 
+    func convert(_: Int) {
+        convert(from: value)
+    }
+
     func convert(from value: String) {
         guard !value.isEmpty else {
             convertedValue = ""
             return
         }
-        let valueNumber = Double(value) ?? 0.0
-        let units = segment.units
-        let initialUnit = units[initialIndex]
-        let goalUnit = units[goalIndex]
-        let goalNumber = converterService.convert(from: initialUnit, to: goalUnit, value: valueNumber)
-        convertedValue = String(goalNumber)
+        let goalNumber = converterService.convert(
+            from: segment.units[initialIndex],
+            to: segment.units[goalIndex],
+            value: value.doubleOrZero
+        )
+
+        let roundedGoal = Double(round(1000 * goalNumber) / 1000)
+        if roundedGoal.truncatingRemainder(dividingBy: 10) == 0 {
+            convertedValue = String(Int(roundedGoal))
+        } else {
+            convertedValue = String(roundedGoal)
+        }
     }
 
     func reverse() {
         swap(&initialIndex, &goalIndex)
+        convert(from: value)
     }
 }
 
