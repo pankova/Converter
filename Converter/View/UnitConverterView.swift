@@ -18,7 +18,7 @@ struct UnitConverterView: View {
     
     var body: some View {
         VStack(spacing: 4) {
-            SegmentView(segments: allSegments, selected: $segment)
+            SegmentView(segments: allSegments, onChange: onSegmentChange, selected: $segment)
             HStack {
                 UnitsView(
                     unitData: segment.unitRowsdata,
@@ -36,6 +36,11 @@ struct UnitConverterView: View {
         }
         .onChange(of: value, perform: convert)
         .background(Color.pink.opacity(0.1))
+    }
+
+    func onSegmentChange() {
+        initialIndex = 0
+        goalIndex = 1
     }
 
     func convert(_: Int) {
