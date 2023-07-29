@@ -8,7 +8,7 @@
 import Foundation
 
 protocol UnitSegment: Hashable {
-    associatedtype UnitType: Unit
+    associatedtype UnitType: Dimension
     var units: [UnitType] { get }
     var title: String { get }
 }

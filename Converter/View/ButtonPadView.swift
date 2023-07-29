@@ -57,6 +57,8 @@ struct ButtonPadView: View {
     }
 
     func clearSymbol() {
+
+        guard !value.isEmpty else { return }
         value.removeLast()
     }
 
