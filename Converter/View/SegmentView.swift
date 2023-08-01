@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SegmentView: View {
     var segments: [any UnitSegment]
+    var onChange: VoidBlock
     @Binding var selected: any UnitSegment
 
     var body: some View {
@@ -26,6 +27,7 @@ struct SegmentView: View {
                                     TapGesture()
                                         .onEnded{ gesture in
                                             selected = segment
+                                            onChange()
                                             withAnimation {
                                                 proxy.scrollTo(segment, anchor: .center)
                                             }
@@ -44,6 +46,6 @@ struct SegmentView: View {
 
 struct SegmentView_Previews: PreviewProvider {
     static var previews: some View {
-        SegmentView(segments: allSegments, selected: .constant(MassSegment()))
+        SegmentView(segments: allSegments, onChange: { }, selected: .constant(MassSegment()))
     }
 }

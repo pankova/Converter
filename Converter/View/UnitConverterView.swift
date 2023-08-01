@@ -19,35 +19,36 @@ struct UnitConverterView: View {
     var body: some View {
         VStack(spacing: 4) {
             SegmentView(segments: allSegments, onChange: onSegmentChange, selected: $segment)
-            HStack {
-                UnitsView(
-                    unitData: segment.unitRowsdata,
-                    activeIndex: $initialIndex,
-                    value: $value,
-                    onChangeActiveIndex: convert
-                )
-                UnitsView(
-                    unitData: segment.unitRowsdata,
-                    activeIndex: $goalIndex,
-                    value: $convertedValue,
-                    onChangeActiveIndex: convert)
+            GeometryReader { geometry in
+                HStack {
+                    UnitsView(
+                        unitData: segment.unitRowsdata,
+                        activeIndex: $initialIndex,
+                        value: $value,
+                        visibleContentLength: geometry.size.height,
+                        onChangeActiveIndex: { _ in recalculate() }
+                    )
+                    UnitsView(
+                        unitData: segment.unitRowsdata,
+                        activeIndex: $goalIndex,
+                        value: $convertedValue,
+                        visibleContentLength: geometry.size.height,
+                        onChangeActiveIndex: { _ in recalculate() })
+                }
             }
             ButtonPadView(value: $value, reverseAction: reverse)
         }
-        .onChange(of: value, perform: convert)
+        .onChange(of: value, perform: { _ in recalculate() })
         .background(Color.pink.opacity(0.1))
     }
 
-    func onSegmentChange() {
+    private func onSegmentChange() {
         initialIndex = 0
         goalIndex = 1
+        recalculate()
     }
 
-    func convert(_: Int) {
-        convert(from: value)
-    }
-
-    func convert(from value: String) {
+    private func recalculate() {
         guard !value.isEmpty else {
             convertedValue = ""
             return
@@ -57,18 +58,12 @@ struct UnitConverterView: View {
             to: segment.units[goalIndex],
             value: value.doubleOrZero
         )
-
-        let roundedGoal = Double(round(1000 * goalNumber) / 1000)
-        if roundedGoal.truncatingRemainder(dividingBy: 10) == 0 {
-            convertedValue = String(Int(roundedGoal))
-        } else {
-            convertedValue = String(roundedGoal)
-        }
+        convertedValue = goalNumber
     }
 
     func reverse() {
         swap(&initialIndex, &goalIndex)
-        convert(from: value)
+        recalculate()
     }
 }
 

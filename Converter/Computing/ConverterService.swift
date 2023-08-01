@@ -9,9 +9,9 @@ import Foundation
 
 struct ConverterService {
 
-    func convert(from initialUnit: Dimension, to goalUnit: Dimension, value: Double) -> Double {
+    func convert(from initialUnit: Dimension, to goalUnit: Dimension, value: Double) -> String {
         let initial = Measurement<Dimension>(value: value, unit: initialUnit)
         let converted = initial.converted(to: goalUnit)
-        return converted.value
+        return NumberFormatter.outputFormatter.string(from: NSNumber(value: converted.value)) ?? ""
     }
 }
