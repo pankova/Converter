@@ -39,7 +39,7 @@ struct UnitConverterView: View {
             ButtonPadView(value: $value, reverseAction: reverse)
         }
         .onChange(of: value, perform: { _ in recalculate() })
-        .background(Color.pink.opacity(0.1))
+        .background(Color.backgroundPrimary)
     }
 
     private func onSegmentChange() {

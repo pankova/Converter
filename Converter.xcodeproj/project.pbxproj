@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		4412553E2A721DCF00858ADE /* VoidBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412553D2A721DCF00858ADE /* VoidBlock.swift */; };
 		441255442A7502CD00858ADE /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441255432A7502CD00858ADE /* String+Extension.swift */; };
+		441608522A7A03110059B215 /* UnitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441608512A7A03110059B215 /* UnitsView.swift */; };
 		4455A49B2A69E07000849DB8 /* AdaptivePagingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A49A2A69E07000849DB8 /* AdaptivePagingScrollView.swift */; };
 		4455A49D2A69E08B00849DB8 /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A49C2A69E08B00849DB8 /* Orientation.swift */; };
 		4455A49F2A69E09D00849DB8 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A49E2A69E09D00849DB8 /* View+Ext.swift */; };
 		4455A4A12A69E0AC00849DB8 /* FrameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A4A02A69E0AC00849DB8 /* FrameModifier.swift */; };
 		4455A4A62A69E18A00849DB8 /* UnitRowsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A4A22A69E18A00849DB8 /* UnitRowsData.swift */; };
 		4455A4A72A69E18A00849DB8 /* UnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A4A32A69E18A00849DB8 /* UnitView.swift */; };
-		4455A4A82A69E18A00849DB8 /* UnitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A4A42A69E18A00849DB8 /* UnitsView.swift */; };
 		4455A4A92A69E18A00849DB8 /* UnitRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A4A52A69E18A00849DB8 /* UnitRow.swift */; };
 		4455A4AB2A69E4C600849DB8 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A4AA2A69E4C600849DB8 /* DesignSystem.swift */; };
 		4457AB912A5B38B500EA547C /* ConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4457AB902A5B38B500EA547C /* ConverterApp.swift */; };
@@ -65,13 +65,13 @@
 /* Begin PBXFileReference section */
 		4412553D2A721DCF00858ADE /* VoidBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidBlock.swift; sourceTree = "<group>"; };
 		441255432A7502CD00858ADE /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		441608512A7A03110059B215 /* UnitsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitsView.swift; sourceTree = "<group>"; };
 		4455A49A2A69E07000849DB8 /* AdaptivePagingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptivePagingScrollView.swift; sourceTree = "<group>"; };
 		4455A49C2A69E08B00849DB8 /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		4455A49E2A69E09D00849DB8 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		4455A4A02A69E0AC00849DB8 /* FrameModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameModifier.swift; sourceTree = "<group>"; };
 		4455A4A22A69E18A00849DB8 /* UnitRowsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitRowsData.swift; sourceTree = "<group>"; };
 		4455A4A32A69E18A00849DB8 /* UnitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitView.swift; sourceTree = "<group>"; };
-		4455A4A42A69E18A00849DB8 /* UnitsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitsView.swift; sourceTree = "<group>"; };
 		4455A4A52A69E18A00849DB8 /* UnitRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitRow.swift; sourceTree = "<group>"; };
 		4455A4AA2A69E4C600849DB8 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		4457AB8D2A5B38B500EA547C /* Converter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Converter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +147,6 @@
 				4455A49A2A69E07000849DB8 /* AdaptivePagingScrollView.swift */,
 				4455A4A52A69E18A00849DB8 /* UnitRow.swift */,
 				4455A4A22A69E18A00849DB8 /* UnitRowsData.swift */,
-				4455A4A42A69E18A00849DB8 /* UnitsView.swift */,
 				4455A4A32A69E18A00849DB8 /* UnitView.swift */,
 				4455A4A02A69E0AC00849DB8 /* FrameModifier.swift */,
 				4455A49C2A69E08B00849DB8 /* Orientation.swift */,
@@ -254,6 +253,7 @@
 			children = (
 				4457ABBC2A5B445B00EA547C /* ButtonPadView.swift */,
 				4457ABC42A5B5C9400EA547C /* UnitConverterView.swift */,
+				441608512A7A03110059B215 /* UnitsView.swift */,
 				4455A4AA2A69E4C600849DB8 /* DesignSystem.swift */,
 				448834A12A5BA3A600B87509 /* NumberView.swift */,
 				448834A72A5BA4FB00B87509 /* ButtonPadStyle.swift */,
@@ -395,6 +395,7 @@
 				446228882A71905F00D04CE6 /* AreaSegment.swift in Sources */,
 				4457ABC52A5B5C9400EA547C /* UnitConverterView.swift in Sources */,
 				4455A49F2A69E09D00849DB8 /* View+Ext.swift in Sources */,
+				441608522A7A03110059B215 /* UnitsView.swift in Sources */,
 				4455A49B2A69E07000849DB8 /* AdaptivePagingScrollView.swift in Sources */,
 				446228832A7071BC00D04CE6 /* UnitSegment.swift in Sources */,
 				446228902A71909300D04CE6 /* MassSegment.swift in Sources */,
@@ -406,7 +407,6 @@
 				4455A4A92A69E18A00849DB8 /* UnitRow.swift in Sources */,
 				4455A4A62A69E18A00849DB8 /* UnitRowsData.swift in Sources */,
 				448834A62A5BA4DE00B87509 /* ButtonType.swift in Sources */,
-				4455A4A82A69E18A00849DB8 /* UnitsView.swift in Sources */,
 				4455A4A12A69E0AC00849DB8 /* FrameModifier.swift in Sources */,
 				4462288E2A71908800D04CE6 /* LengthSegment.swift in Sources */,
 				4457AB912A5B38B500EA547C /* ConverterApp.swift in Sources */,

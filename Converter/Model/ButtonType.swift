@@ -33,18 +33,18 @@ enum ButtonType: CustomStringConvertible, Hashable {
     var foregroundColor: Color {
         switch self {
         case .digit, .decimal:
-            return .white
+            return .textPrimary
         case .clearSymbol, .clearAll, .reverse:
-            return .white
+            return .textSecondary
         }
     }
 
     var backgroundColor: Color {
         switch self {
         case .digit, .decimal:
-            return .gray
+            return .fillPrimary
         case .clearSymbol, .clearAll, .reverse:
-            return .black
+            return .fillSecondary
         }
     }
 }

@@ -21,7 +21,7 @@ struct ButtonPadStyle: ButtonStyle {
             .foregroundColor(foregroundColor)
             .overlay {
                 if configuration.isPressed {
-                    Color(white: 1.0, opacity: 0.2)
+                    Color.pressed
                 }
             }
             .clipShape(Capsule())

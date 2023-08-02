@@ -20,7 +20,11 @@ struct SegmentView: View {
                         ZStack {
                             Text(segment.title)
                                 .padding(6)
-                                .background(selected.title == segment.title ? .green : .white)
+                                .background(
+                                    selected.title == segment.title
+                                    ? Color.fillPrimary
+                                    : Color.fillSecondary
+                                )
                                 .cornerRadius(8)
                                 .clipShape(ContainerRelativeShape())
                                 .gesture(
@@ -38,7 +42,7 @@ struct SegmentView: View {
                 }
                 .padding(Padding.inner)
             }
-            .background(.gray)
+            .background(Color.backgroundSecondary)
         }
         .frame(height: 60)
     }
