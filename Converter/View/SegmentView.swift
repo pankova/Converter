@@ -25,6 +25,7 @@ struct SegmentView: View {
                                     ? Color.fillPrimary
                                     : Color.fillSecondary
                                 )
+                                .font(.system(size: 22))
                                 .cornerRadius(8)
                                 .clipShape(ContainerRelativeShape())
                                 .gesture(
@@ -42,7 +43,6 @@ struct SegmentView: View {
                 }
                 .padding(Padding.inner)
             }
-            .background(Color.backgroundSecondary)
         }
         .frame(height: 60)
     }

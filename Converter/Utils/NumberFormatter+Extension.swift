@@ -13,4 +13,8 @@ extension NumberFormatter {
         formatter.maximumFractionDigits = 3
         return formatter
     }()
+
+    func string(from number: Double) -> String {
+        string(from: NSNumber(value: number)) ?? ""
+    }
 }

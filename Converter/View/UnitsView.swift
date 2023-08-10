@@ -19,14 +19,16 @@ struct UnitsView: View {
     let onChangeActiveIndex: (Int) -> ()
 
     var body: some View {
-        VStack {
+        ZStack {
             GeometryReader { geometry in
-                AdaptivePagingScrollView(currentPageIndex: $activeIndex,
-                                         itemsAmount: unitData.units.count - 1,
-                                         itemScrollableSide: itemSide,
-                                         itemPadding: itemPadding,
-                                         visibleContentLength: visibleContentLength,
-                                         orientation: .vertical) {
+                AdaptivePagingScrollView(
+                    currentPageIndex: $activeIndex,
+                    itemsAmount: unitData.units.count - 1,
+                    itemScrollableSide: itemSide,
+                    itemPadding: itemPadding,
+                    visibleContentLength: visibleContentLength,
+                    orientation: .vertical
+                ) {
                     ForEach(unitData.units, id: \.self) { card in
                         let isSelectedCard = activeIndex == unitData.units.firstIndex(of: card) ?? 0
                         GeometryReader { screen in
@@ -36,15 +38,21 @@ struct UnitsView: View {
                                 unit: card.unit,
                                 unitName: card.unitName
                             )
-                                .scaleEffect(isSelectedCard ? 1 : 0.9)
+                            .scaleEffect(isSelectedCard ? 1 : 0.9)
                         }
-
                     }
                 }
-                                         .background(Color.backgroundSecondary)
+                .clipped()
+                .onChange(of: activeIndex, perform: onChangeActiveIndex)
             }
+            LinearGradient(
+                colors: [.backgroundSecondary, .clear, .clear, .clear, .backgroundSecondary],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .allowsHitTesting(false)
         }
-        .onChange(of: activeIndex, perform: onChangeActiveIndex)
+
     }
 
     init(unitData: UnitRowsData,

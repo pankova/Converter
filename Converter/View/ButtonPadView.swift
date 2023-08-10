@@ -15,7 +15,7 @@ struct ButtonPadView: View {
         [
             [.digit(.seven), .digit(.eight), .digit(.nine), .clearSymbol],
             [.digit(.four), .digit(.five), .digit(.six), .reverse],
-            [.digit(.one), .digit(.two), .digit(.three),],
+            [.digit(.one), .digit(.two), .digit(.three), .plusMinus],
             [.clearAll, .digit(.zero), .decimal]
         ]
     }
@@ -43,6 +43,8 @@ struct ButtonPadView: View {
             return clear
         case .reverse:
             return reverse
+        case .plusMinus:
+            return changeSign
         default:
             return { addDigit(buttonType) }
         }
@@ -50,6 +52,12 @@ struct ButtonPadView: View {
 
     func addDigit(_ buttonType: ButtonType) {
         value += buttonType.description
+    }
+
+    func changeSign() {
+        guard let numberValue = Double(value),
+              numberValue != 0 else { return }
+        value = NumberFormatter.outputFormatter.string(from: -numberValue)
     }
 
     func reverse() {

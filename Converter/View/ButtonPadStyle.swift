@@ -15,8 +15,8 @@ struct ButtonPadStyle: ButtonStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.system(size: 32, weight: .medium))
-            .frame(width: size, height: size)
+            .font(.header)
+            .frame(width: size, height: 0.8 * size)
             .background(backgroundColor)
             .foregroundColor(foregroundColor)
             .overlay {

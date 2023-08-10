@@ -36,10 +36,11 @@ struct UnitConverterView: View {
                         onChangeActiveIndex: { _ in recalculate() })
                 }
             }
+            .padding(Padding.screen)
             ButtonPadView(value: $value, reverseAction: reverse)
         }
         .onChange(of: value, perform: { _ in recalculate() })
-        .background(Color.backgroundPrimary)
+        .background(Color.backgroundSecondary)
     }
 
     private func onSegmentChange() {
