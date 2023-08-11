@@ -25,5 +25,9 @@ struct ButtonPadStyle: ButtonStyle {
                 }
             }
             .clipShape(Capsule())
+            .overlay(
+                RoundedRectangle(cornerRadius: 24)
+                    .stroke(.white, lineWidth: 4)
+            )
     }
 }

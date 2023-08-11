@@ -18,4 +18,11 @@ extension Color {
     static let backgroundSecondary = Color("BackgroundSecondary")
 
     static let pressed = Color("Pressed")
+
+    static let accent1 = Color("Accent1")
+    static let accent1Highlighted = Color("Accent1Highlighted")
+    static let accent2 = Color("Accent2")
+    static let accent2Highlighted = Color("Accent2Highlighted")
+    static let accent3 = Color("Accent3")
+    static let accent3Highlighted = Color("Accent3Highlighted")
 }

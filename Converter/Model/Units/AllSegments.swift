@@ -11,5 +11,11 @@ let allSegments: [any UnitSegment] = [
     TemperatureSegment(),
     VolumeSegment(),
     AreaSegment(),
-    SpeedSegment()
+    SpeedSegment(),
+    DurationSegment(),
+    FuelEfficiencySegment(),
+    StorageSegment(),
+    EnergySegment(),
+    AngleSegment(),
+    PowerSegment(),
 ]

@@ -8,13 +8,23 @@
 import Foundation
 
 struct MassSegment: UnitSegment {
-    var units: [UnitMass] = [
+    let units: [UnitMass] = [
         .milligrams,
         .grams,
         .kilograms,
         .pounds,
         .ounces,
         .carats,
+        .centigrams,
+        .decigrams,
+        .metricTons,
+        .micrograms,
+        .nanograms,
+        .ouncesTroy,
+        .picograms,
+        .shortTons,
+        .slugs,
+        .stones
     ]
-    var title = "Weight"
+    let title = "Weight"
 }

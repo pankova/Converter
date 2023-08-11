@@ -8,7 +8,7 @@
 import Foundation
 
 struct AreaSegment: UnitSegment {
-    var units: [UnitArea] = [
+    let units: [UnitArea] = [
         .acres,
         .ares,
         .hectares,
@@ -17,7 +17,12 @@ struct AreaSegment: UnitSegment {
         .squareInches,
         .squareKilometers,
         .squareMeters,
+        .squareMegameters,
+        .squareMillimeters,
+        .squareMicrometers,
+        .squareNanometers,
+        .squareMiles,
         .squareYards
     ]
-    var title = "Area"
+    let title = "Area"
 }

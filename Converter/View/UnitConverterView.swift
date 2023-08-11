@@ -17,10 +17,12 @@ struct UnitConverterView: View {
     let converterService = ConverterService()
     
     var body: some View {
-        VStack(spacing: 4) {
+        VStack(spacing: 0) {
             SegmentView(segments: allSegments, onChange: onSegmentChange, selected: $segment)
+                .background(Color.accent2)
+            Spacer().frame(width: 374, height: 4).background(Color.white)
             GeometryReader { geometry in
-                HStack {
+                HStack(spacing: 4) {
                     UnitsView(
                         unitData: segment.unitRowsdata,
                         activeIndex: $initialIndex,
@@ -35,12 +37,15 @@ struct UnitConverterView: View {
                         visibleContentLength: geometry.size.height,
                         onChangeActiveIndex: { _ in recalculate() })
                 }
+                .padding([.leading, .trailing], Padding.screen)
             }
-            .padding(Padding.screen)
+            .background(Color.accent3Highlighted)
+            Spacer().frame(width: 375, height: 4).background(Color.white)
             ButtonPadView(value: $value, reverseAction: reverse)
+                .padding([.top], Padding.inner)
         }
         .onChange(of: value, perform: { _ in recalculate() })
-        .background(Color.backgroundSecondary)
+        .background(Color.accent3Highlighted.opacity(0.6))
     }
 
     private func onSegmentChange() {

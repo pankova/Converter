@@ -8,10 +8,10 @@
 import Foundation
 
 struct TemperatureSegment: UnitSegment {
-    var units: [UnitTemperature] = [
+    let units: [UnitTemperature] = [
         .celsius,
         .fahrenheit,
         .kelvin,
     ]
-    var title = "Temperature"
+    let title = "Temperature"
 }

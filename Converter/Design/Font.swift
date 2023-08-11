@@ -8,8 +8,8 @@
 import SwiftUI
 
 extension Font {
-    static let header = Font.system(size: 32)
-    static let title1 = Font.system(size: 24)
-    static let title2 = Font.system(size: 20)
-    static let addition = Font.system(size: 14)
+    static let header = Font.system(size: 32, weight: .medium)
+    static let title1 = Font.system(size: 24, weight: .medium)
+    static let title2 = Font.system(size: 20, weight: .medium)
+    static let addition = Font.system(size: 14, weight: .medium)
 }

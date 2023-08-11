@@ -45,12 +45,6 @@ struct UnitsView: View {
                 .clipped()
                 .onChange(of: activeIndex, perform: onChangeActiveIndex)
             }
-            LinearGradient(
-                colors: [.backgroundSecondary, .clear, .clear, .clear, .backgroundSecondary],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .allowsHitTesting(false)
         }
 
     }

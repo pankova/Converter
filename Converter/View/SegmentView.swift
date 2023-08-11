@@ -22,12 +22,17 @@ struct SegmentView: View {
                                 .padding(6)
                                 .background(
                                     selected.title == segment.title
-                                    ? Color.fillPrimary
-                                    : Color.fillSecondary
+                                    ? Color.accent1
+                                    : Color.accent3
                                 )
-                                .font(.system(size: 22))
-                                .cornerRadius(8)
+                                .foregroundColor(.white)
+                                .font(.system(size: 22, weight: .medium))
+                                .cornerRadius(10)
                                 .clipShape(ContainerRelativeShape())
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.white, lineWidth: 4)
+                                )
                                 .gesture(
                                     TapGesture()
                                         .onEnded{ gesture in
@@ -41,7 +46,7 @@ struct SegmentView: View {
                         }
                     }
                 }
-                .padding(Padding.inner)
+                .padding([.top, .leading, .trailing, .bottom], Padding.inner)
             }
         }
         .frame(height: 60)
