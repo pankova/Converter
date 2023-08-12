@@ -17,6 +17,7 @@ struct UnitsView: View {
     let itemPadding: CGFloat
     let visibleContentLength: CGFloat
     let onChangeActiveIndex: (Int) -> ()
+    private let generator = UIImpactFeedbackGenerator(style: .medium)
 
     var body: some View {
         ZStack {
@@ -34,16 +35,20 @@ struct UnitsView: View {
                         GeometryReader { screen in
                             UnitView(
                                 itemSide: itemSide,
-                                value: isSelectedCard ? value : "",
+                                value: value,
                                 unit: card.unit,
-                                unitName: card.unitName
+                                unitName: card.unitName,
+                                isSelected: isSelectedCard
                             )
-                            .scaleEffect(isSelectedCard ? 1 : 0.9)
+                            .scaleEffect(isSelectedCard ? 1 : 0.88)
                         }
                     }
                 }
                 .clipped()
-                .onChange(of: activeIndex, perform: onChangeActiveIndex)
+                .onChange(of: activeIndex, perform: { index in
+                    generator.impactOccurred()
+                    onChangeActiveIndex(index)
+                })
             }
         }
 

@@ -51,6 +51,12 @@ struct ButtonPadView: View {
     }
 
     func addDigit(_ buttonType: ButtonType) {
+        if buttonType == .decimal && value.contains(buttonType.description) {
+            return
+        }
+        if buttonType != .decimal && value == Constants.initialValue {
+            value = ""
+        }
         value += buttonType.description
     }
 
@@ -65,12 +71,11 @@ struct ButtonPadView: View {
     }
 
     func clearSymbol() {
-        guard !value.isEmpty else { return }
-        value.removeLast()
+        value.count == 1 ? clear() : { value.removeLast() }()
     }
 
     func clear() {
-        value = ""
+        value = Constants.initialValue
     }
 }
 

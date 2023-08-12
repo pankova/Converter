@@ -10,9 +10,13 @@ import SwiftUI
 struct NumberView: View {
     let buttonType: ButtonType
     let action: VoidBlock
+    private let generator = UIImpactFeedbackGenerator(style: .soft)
 
     var body: some View {
-        Button(buttonType.description) { action() }
+        Button(buttonType.description) {
+            generator.impactOccurred()
+            action()
+        }
             .buttonStyle(
                 ButtonPadStyle(
                     size: buttonSize(),

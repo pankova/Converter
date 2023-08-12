@@ -10,8 +10,8 @@ import SwiftUI
 struct UnitConverterView: View {
     @State var initialIndex: Int = 0
     @State var goalIndex: Int = 1
-    @State var value: String = ""
-    @State var convertedValue: String = ""
+    @State var value: String = Constants.initialValue
+    @State var convertedValue: String = Constants.initialValue
     @State var segment: any UnitSegment
 
     let converterService = ConverterService()
@@ -19,33 +19,46 @@ struct UnitConverterView: View {
     var body: some View {
         VStack(spacing: 0) {
             SegmentView(segments: allSegments, onChange: onSegmentChange, selected: $segment)
-                .background(Color.accent2)
-            Spacer().frame(width: 374, height: 4).background(Color.white)
-            GeometryReader { geometry in
-                HStack(spacing: 4) {
-                    UnitsView(
-                        unitData: segment.unitRowsdata,
-                        activeIndex: $initialIndex,
-                        value: $value,
-                        visibleContentLength: geometry.size.height,
-                        onChangeActiveIndex: { _ in recalculate() }
-                    )
-                    UnitsView(
-                        unitData: segment.unitRowsdata,
-                        activeIndex: $goalIndex,
-                        value: $convertedValue,
-                        visibleContentLength: geometry.size.height,
-                        onChangeActiveIndex: { _ in recalculate() })
+                .background(Color.accent3.opacity(0.6))
+            Divider()
+                .frame(height: 4)
+                .overlay(.white)
+            ZStack {
+                GeometryReader { geometry in
+                    HStack(spacing: 0) {
+                        UnitsView(
+                            unitData: segment.unitRowsdata,
+                            activeIndex: $initialIndex,
+                            value: $value,
+                            visibleContentLength: geometry.size.height,
+                            onChangeActiveIndex: { _ in recalculate() }
+                        )
+                        UnitsView(
+                            unitData: segment.unitRowsdata,
+                            activeIndex: $goalIndex,
+                            value: $convertedValue,
+                            visibleContentLength: geometry.size.height,
+                            onChangeActiveIndex: { _ in recalculate() })
+                    }
                 }
-                .padding([.leading, .trailing], Padding.screen)
+                VStack {
+                    Rectangle()
+                        .frame(width: 8, height: 4)
+                        .foregroundColor(Color.accent2)
+                    Spacer().frame(height: 4)
+                    Rectangle()
+                        .frame(width: 8, height: 4)
+                        .foregroundColor(Color.accent2)
+                }
             }
-            .background(Color.accent3Highlighted)
-            Spacer().frame(width: 375, height: 4).background(Color.white)
+            Divider()
+                .frame(height: 4)
+                .overlay(.white)
             ButtonPadView(value: $value, reverseAction: reverse)
                 .padding([.top], Padding.inner)
         }
         .onChange(of: value, perform: { _ in recalculate() })
-        .background(Color.accent3Highlighted.opacity(0.6))
+        .background(Color.accent3Highlighted.opacity(0.4))
     }
 
     private func onSegmentChange() {
@@ -55,8 +68,8 @@ struct UnitConverterView: View {
     }
 
     private func recalculate() {
-        guard !value.isEmpty else {
-            convertedValue = ""
+        guard value != Constants.initialValue else {
+            convertedValue = Constants.initialValue
             return
         }
         let goalNumber = converterService.convert(

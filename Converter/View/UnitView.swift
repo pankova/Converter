@@ -9,21 +9,32 @@ import SwiftUI
 
 struct UnitView: View {
     let itemSide: CGFloat
-    var value: String
-    var unit: String
-    var unitName: String
+    let value: String
+    let unit: String
+    let unitName: String
+    let isSelected: Bool
 
     var body: some View {
         VStack(alignment: .trailing) {
-            HStack {
-                Text(value)
-                    .font(.title1)
-                Text(unit)
-                    .font(.title2)
-                Spacer()
+            if isSelected {
+                HStack {
+                    Text(value)
+                        .font(.title1)
+                    Text(unit)
+                        .font(.title2)
+                    Spacer()
+                }
             }
-            Text(unitName)
-                .font(.addition)
+            HStack {
+                Text(unitName)
+                    .font(isSelected ? .addition : .title2)
+                if !isSelected {
+                    Spacer()
+                    Text(unit)
+                        .font(.title2)
+                        .foregroundColor(.gray.opacity(0.9))
+                }
+            }
         }
         .foregroundColor(.textSecondary)
         .minimumScaleFactor(0.1)
@@ -31,12 +42,17 @@ struct UnitView: View {
         .frame(height: itemSide)
         .background(Color.backgroundPrimary)
         .cornerRadius(16)
-        .shadow(radius: 4)
+        .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.33), radius: 3, y: 2)
+        .overlay(
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(isSelected ? Color.accent2 : Color.backgroundPrimary, lineWidth: isSelected ? 4 : 0)
+        )
+        .padding([.leading, .trailing], 4)
     }
 }
 
 struct UnitView_Previews: PreviewProvider {
     static var previews: some View {
-        UnitView(itemSide: 80, value: "5", unit: "Kilogram", unitName: "kg")
+        UnitView(itemSide: 80, value: "5", unit: "Kilogram", unitName: "kg", isSelected: true)
     }
 }

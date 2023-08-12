@@ -45,7 +45,7 @@ enum ButtonType: CustomStringConvertible, Hashable {
     var backgroundColor: Color {
         switch self {
         case .digit, .decimal:
-            return .accent2
+            return .accent3
         case .clearSymbol, .clearAll, .reverse, .plusMinus:
             return .accent2
         }

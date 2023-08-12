@@ -11,6 +11,7 @@ struct SegmentView: View {
     var segments: [any UnitSegment]
     var onChange: VoidBlock
     @Binding var selected: any UnitSegment
+    private let generator = UIImpactFeedbackGenerator(style: .light)
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -23,7 +24,7 @@ struct SegmentView: View {
                                 .background(
                                     selected.title == segment.title
                                     ? Color.accent1
-                                    : Color.accent3
+                                    : Color.accent1Highlighted
                                 )
                                 .foregroundColor(.white)
                                 .font(.system(size: 22, weight: .medium))
@@ -37,6 +38,7 @@ struct SegmentView: View {
                                     TapGesture()
                                         .onEnded{ gesture in
                                             selected = segment
+                                            generator.impactOccurred()
                                             onChange()
                                             withAnimation {
                                                 proxy.scrollTo(segment, anchor: .center)
