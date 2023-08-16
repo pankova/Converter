@@ -19,6 +19,7 @@
 		444364392A86C0EE0040220C /* StorageSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444364382A86C0EE0040220C /* StorageSegment.swift */; };
 		4443643B2A86C2420040220C /* PowerSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4443643A2A86C2420040220C /* PowerSegment.swift */; };
 		4443643E2A8815940040220C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4443643D2A8815940040220C /* Constants.swift */; };
+		444364412A8AC5FF0040220C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 444364402A8AC5FF0040220C /* LaunchScreen.storyboard */; };
 		4455A49B2A69E07000849DB8 /* AdaptivePagingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A49A2A69E07000849DB8 /* AdaptivePagingScrollView.swift */; };
 		4455A49D2A69E08B00849DB8 /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A49C2A69E08B00849DB8 /* Orientation.swift */; };
 		4455A49F2A69E09D00849DB8 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A49E2A69E09D00849DB8 /* View+Ext.swift */; };
@@ -75,6 +76,8 @@
 		444364382A86C0EE0040220C /* StorageSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageSegment.swift; sourceTree = "<group>"; };
 		4443643A2A86C2420040220C /* PowerSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerSegment.swift; sourceTree = "<group>"; };
 		4443643D2A8815940040220C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4443643F2A8AC5540040220C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		444364402A8AC5FF0040220C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4455A49A2A69E07000849DB8 /* AdaptivePagingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptivePagingScrollView.swift; sourceTree = "<group>"; };
 		4455A49C2A69E08B00849DB8 /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		4455A49E2A69E09D00849DB8 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
@@ -205,6 +208,7 @@
 		4457AB8F2A5B38B500EA547C /* Converter */ = {
 			isa = PBXGroup;
 			children = (
+				4443643F2A8AC5540040220C /* Info.plist */,
 				4443642B2A8564BE0040220C /* Design */,
 				4412553C2A721DC600858ADE /* Utils */,
 				4462286C2A705C7500D04CE6 /* Service */,
@@ -213,6 +217,7 @@
 				4488349F2A5BA37C00B87509 /* Model */,
 				4457AB902A5B38B500EA547C /* ConverterApp.swift */,
 				4457AB942A5B38B600EA547C /* Assets.xcassets */,
+				444364402A8AC5FF0040220C /* LaunchScreen.storyboard */,
 				4457AB962A5B38B600EA547C /* Preview Content */,
 			);
 			path = Converter;
@@ -356,6 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				444364412A8AC5FF0040220C /* LaunchScreen.storyboard in Resources */,
 				4457AB982A5B38B600EA547C /* Preview Assets.xcassets in Resources */,
 				4457AB952A5B38B600EA547C /* Assets.xcassets in Resources */,
 			);
@@ -555,16 +561,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Converter/Preview Content\"";
 				DEVELOPMENT_TEAM = 3X5USZAJXM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Converter/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EasyUnit;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -572,8 +583,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mpankova.Converter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpankova.EasyUnitConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -584,16 +596,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Converter/Preview Content\"";
 				DEVELOPMENT_TEAM = 3X5USZAJXM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Converter/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EasyUnit;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -601,8 +618,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mpankova.Converter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpankova.EasyUnitConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
