@@ -6,7 +6,7 @@ This is your ultimate unit conversion tool, designed to make converting between 
 
 <h2>Features</h2>
 
-<ul></ul>
+<ul>
 <li>Comprehensive Unit Support: EasyUnit Converter supports a wide range of units for length, weight, volume, temperature, and more, allowing you to switch between different measurement systems effortlessly.</li>
 <li>Streamlined Interface: Our intuitive interface lets you select your desired units and input values on ONE screen, making conversions quick and hassle-free.</li>
 <li>Ad-Free Experience: Enjoy the convenience of EasyUnit Converter without any distracting advertisements, ensuring a smooth and uninterrupted conversion process.</li>
