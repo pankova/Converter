@@ -17,7 +17,7 @@ This is your ultimate unit conversion tool, designed to make converting between 
 <h4>We're here to make your life easier. Have any feedback or suggestions? <a href="mailto:easyunitconverterhelp@gmail.com">Feel free to reach out to us.</a> Your input helps us improve the app for you.</h4>
 
 <img src="Screenshots/1.PNG" alt="screenshot1" width="200"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="Screenshots/2.PNG" alt="screenshot2" width="200"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="Screenshots/3.PNG" alt="screenshot3" width="200"/>
-
+<br>
 easyunitconverterhelp@gmail.com
 
 </div>
