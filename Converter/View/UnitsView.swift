@@ -57,7 +57,7 @@ struct UnitsView: View {
     init(unitData: UnitRowsData,
          activeIndex: Binding<Int>,
          value: Binding<String>,
-         itemSide: CGFloat = 80,
+         itemSide: CGFloat = UIDevice.isIpad ? 120 : 80,
          itemPadding: CGFloat = 16,
          visibleContentLength: CGFloat = 300,
          onChangeActiveIndex: @escaping (Int) -> ()) {

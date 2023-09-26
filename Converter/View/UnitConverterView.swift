@@ -38,7 +38,8 @@ struct UnitConverterView: View {
                             activeIndex: $goalIndex,
                             value: $convertedValue,
                             visibleContentLength: geometry.size.height,
-                            onChangeActiveIndex: { _ in recalculate() })
+                            onChangeActiveIndex: { _ in recalculate() }
+                        )
                     }
                 }
                 VStack {
@@ -55,7 +56,7 @@ struct UnitConverterView: View {
                 .frame(height: 4)
                 .overlay(.white)
             ButtonPadView(value: $value, reverseAction: reverse)
-                .padding([.top], Padding.inner)
+                .padding([.top, .bottom], Padding.inner)
         }
         .onChange(of: value, perform: { _ in recalculate() })
         .background(Color.accent3Highlighted.opacity(0.4))

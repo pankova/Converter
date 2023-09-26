@@ -27,7 +27,7 @@ struct SegmentView: View {
                                     : Color.accent1Highlighted
                                 )
                                 .foregroundColor(.white)
-                                .font(.system(size: 22, weight: .medium))
+                                .font(UIDevice.isIpad ? .header2 : .title2)
                                 .cornerRadius(10)
                                 .clipShape(ContainerRelativeShape())
                                 .overlay(
@@ -51,7 +51,7 @@ struct SegmentView: View {
                 .padding([.top, .leading, .trailing, .bottom], Padding.inner)
             }
         }
-        .frame(height: 60)
+        .frame(height: UIDevice.isIpad ? 100 : 60)
     }
 }
 

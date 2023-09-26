@@ -48,6 +48,7 @@
 		448834A62A5BA4DE00B87509 /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448834A52A5BA4DE00B87509 /* ButtonType.swift */; };
 		448834A82A5BA4FB00B87509 /* ButtonPadStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448834A72A5BA4FB00B87509 /* ButtonPadStyle.swift */; };
 		448834AA2A5BA51300B87509 /* Digit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448834A92A5BA51300B87509 /* Digit.swift */; };
+		448C2B242A904BD9006D90A2 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448C2B232A904BD9006D90A2 /* UIDevice+Extension.swift */; };
 		449FCBF72A79826100008856 /* NumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449FCBF62A79826100008856 /* NumberFormatter+Extension.swift */; };
 		44FC5B772A719BF90000A5AD /* Unit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FC5B762A719BF90000A5AD /* Unit+Extension.swift */; };
 		44FC5B792A719C080000A5AD /* MeasurementFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FC5B782A719C080000A5AD /* MeasurementFormatter+Extension.swift */; };
@@ -108,6 +109,7 @@
 		448834A52A5BA4DE00B87509 /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
 		448834A72A5BA4FB00B87509 /* ButtonPadStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPadStyle.swift; sourceTree = "<group>"; };
 		448834A92A5BA51300B87509 /* Digit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digit.swift; sourceTree = "<group>"; };
+		448C2B232A904BD9006D90A2 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		449FCBF62A79826100008856 /* NumberFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extension.swift"; sourceTree = "<group>"; };
 		44FC5B762A719BF90000A5AD /* Unit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unit+Extension.swift"; sourceTree = "<group>"; };
 		44FC5B782A719C080000A5AD /* MeasurementFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasurementFormatter+Extension.swift"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				4412553D2A721DCF00858ADE /* VoidBlock.swift */,
 				441255432A7502CD00858ADE /* String+Extension.swift */,
+				448C2B232A904BD9006D90A2 /* UIDevice+Extension.swift */,
 				44FC5B782A719C080000A5AD /* MeasurementFormatter+Extension.swift */,
 				4443643D2A8815940040220C /* Constants.swift */,
 				44FC5B762A719BF90000A5AD /* Unit+Extension.swift */,
@@ -411,6 +414,7 @@
 				4443642F2A8564E80040220C /* Font.swift in Sources */,
 				448834A82A5BA4FB00B87509 /* ButtonPadStyle.swift in Sources */,
 				4462288C2A71907B00D04CE6 /* TemperatureSegment.swift in Sources */,
+				448C2B242A904BD9006D90A2 /* UIDevice+Extension.swift in Sources */,
 				4462288A2A71906E00D04CE6 /* VolumeSegment.swift in Sources */,
 				444364332A86C0B40040220C /* DurationSegment.swift in Sources */,
 				4455A4AB2A69E4C600849DB8 /* Color.swift in Sources */,
@@ -582,7 +586,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpankova.EasyUnitConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -617,7 +621,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpankova.EasyUnitConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

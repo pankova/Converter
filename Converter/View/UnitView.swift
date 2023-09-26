@@ -21,17 +21,17 @@ struct UnitView: View {
                     Text(value)
                         .font(.title1)
                     Text(unit)
-                        .font(.title2)
+                        .font(.title3)
                     Spacer()
                 }
             }
             HStack {
                 Text(unitName)
-                    .font(isSelected ? .addition : .title2)
+                    .font(isSelected ? .addition : .title3)
                 if !isSelected {
                     Spacer()
                     Text(unit)
-                        .font(.title2)
+                        .font(.title3)
                         .foregroundColor(.gray.opacity(0.9))
                 }
             }

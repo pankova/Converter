@@ -12,11 +12,12 @@ struct ButtonPadStyle: ButtonStyle {
     var size: CGFloat
     var foregroundColor: Color
     var backgroundColor: Color
+    private let cornerRadius: CGFloat = 26
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.header)
-            .frame(width: size, height: 0.8 * size)
+            .font(UIDevice.isIpad ? .header1 : .header2)
+            .frame(width: size, height: (UIDevice.isIpad ? 0.5 : 0.8) * size)
             .background(backgroundColor)
             .foregroundColor(foregroundColor)
             .overlay {
@@ -24,9 +25,9 @@ struct ButtonPadStyle: ButtonStyle {
                     Color.pressed
                 }
             }
-            .clipShape(Capsule())
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .overlay(
-                RoundedRectangle(cornerRadius: 24)
+                RoundedRectangle(cornerRadius: cornerRadius)
                     .stroke(.white, lineWidth: 4)
             )
     }
