@@ -8,7 +8,7 @@
 import Foundation
 
 struct PowerSegment: UnitSegment {
-    let units: [UnitPower] = [
+    var units: [UnitPower] = [
         .terawatts,
         .gigawatts,
         .megawatts,

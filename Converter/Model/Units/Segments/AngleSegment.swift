@@ -8,7 +8,7 @@
 import Foundation
 
 struct AngleSegment: UnitSegment {
-    let units: [UnitAngle] = [
+    var units: [UnitAngle] = [
         .degrees,
         .arcMinutes,
         .arcSeconds,

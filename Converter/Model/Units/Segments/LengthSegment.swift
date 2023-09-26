@@ -8,7 +8,7 @@
 import Foundation
 
 struct LengthSegment: UnitSegment {
-    let units: [UnitLength] = [
+    var units: [UnitLength] = [
         .feet,
         .inches,
         .centimeters,

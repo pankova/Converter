@@ -8,7 +8,7 @@
 import Foundation
 
 struct MassSegment: UnitSegment {
-    let units: [UnitMass] = [
+    var units: [UnitMass] = [
         .milligrams,
         .grams,
         .kilograms,

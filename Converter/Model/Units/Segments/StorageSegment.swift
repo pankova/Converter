@@ -8,7 +8,7 @@
 import Foundation
 
 struct StorageSegment: UnitSegment {
-    let units: [UnitInformationStorage] = [
+    var units: [UnitInformationStorage] = [
         .bytes,
         .bits,
         .nibbles,

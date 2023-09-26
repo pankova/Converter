@@ -74,8 +74,8 @@ struct UnitConverterView: View {
             return
         }
         let goalNumber = converterService.convert(
-            from: segment.units[initialIndex],
-            to: segment.units[goalIndex],
+            from: segment.unitsValue()[initialIndex],
+            to: segment.unitsValue() [goalIndex],
             value: value.doubleOrZero
         )
         convertedValue = goalNumber

@@ -8,7 +8,7 @@
 import Foundation
 
 struct SpeedSegment: UnitSegment {
-    let units: [UnitSpeed] = [
+    var units: [UnitSpeed] = [
         .metersPerSecond,
         .kilometersPerHour,
         .milesPerHour,

@@ -8,7 +8,7 @@
 import Foundation
 
 struct VolumeSegment: UnitSegment {
-    let units: [UnitVolume] = [
+    var units: [UnitVolume] = [
         .cups,
         .gallons,
         .quarts,

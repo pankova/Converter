@@ -8,7 +8,7 @@
 import Foundation
 
 struct FuelEfficiencySegment: UnitSegment {
-    let units: [UnitFuelEfficiency] = [
+    var units: [UnitFuelEfficiency] = [
         .litersPer100Kilometers,
         .milesPerGallon,
         .milesPerImperialGallon

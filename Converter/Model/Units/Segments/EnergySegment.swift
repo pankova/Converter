@@ -8,7 +8,7 @@
 import Foundation
 
 struct EnergySegment: UnitSegment {
-    let units: [UnitEnergy] = [
+    var units: [UnitEnergy] = [
         .joules,
         .calories,
         .kilojoules,

@@ -8,7 +8,7 @@
 import Foundation
 
 struct DurationSegment: UnitSegment {
-    let units: [UnitDuration] = [
+    var units: [UnitDuration] = [
         .hours,
         .minutes,
         .seconds,

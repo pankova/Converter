@@ -8,7 +8,7 @@
 import Foundation
 
 struct AreaSegment: UnitSegment {
-    let units: [UnitArea] = [
+    var units: [UnitArea] = [
         .acres,
         .ares,
         .hectares,
