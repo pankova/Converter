@@ -8,7 +8,7 @@
 import Foundation
 
 struct AreaSegment: UnitSegment {
-    var units: [UnitArea] = [
+    static let allUnits: [UnitArea] = [
         .acres,
         .ares,
         .hectares,
@@ -24,5 +24,16 @@ struct AreaSegment: UnitSegment {
         .squareMiles,
         .squareYards
     ]
-    let title = "Area"
+
+    let type = SegmentType.area
+    let keyedUnits: [Int: UnitArea]
+
+    var initialUnits: [Int]
+    var goalUnits: [Int]
+
+    init () {
+        self.initialUnits = Array(0..<Self.allUnits.count)
+        self.goalUnits = Array(0..<Self.allUnits.count)
+        self.keyedUnits = Dictionary(uniqueKeysWithValues: zip(0..<Self.allUnits.count, Self.allUnits))
+    }
 }

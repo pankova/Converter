@@ -8,11 +8,23 @@
 import Foundation
 
 struct SpeedSegment: UnitSegment {
-    var units: [UnitSpeed] = [
+
+    static let allUnits: [UnitSpeed] = [
         .metersPerSecond,
         .kilometersPerHour,
         .milesPerHour,
         .knots
     ]
-    let title = "Speed"
+
+    let type = SegmentType.speed
+    let keyedUnits: [Int: UnitSpeed]
+
+    var initialUnits: [Int]
+    var goalUnits: [Int]
+
+    init () {
+        self.initialUnits = Array(0..<Self.allUnits.count)
+        self.goalUnits = Array(0..<Self.allUnits.count)
+        self.keyedUnits = Dictionary(uniqueKeysWithValues: zip(0..<Self.allUnits.count, Self.allUnits))
+    }
 }

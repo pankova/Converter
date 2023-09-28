@@ -8,18 +8,24 @@
 import SwiftUI
 
 struct UnitConverterView: View {
-    @State var initialIndex: Int = 0
-    @State var goalIndex: Int = 1
-    @State var value: String = Constants.initialValue
-    @State var convertedValue: String = Constants.initialValue
+    @State var initialIndex: Int
+    @State var goalIndex: Int
+    @State var value: String
+    @State var convertedValue: String
     @State var segment: any UnitSegment
 
-    let converterService = ConverterService()
-    
+    let converterService: ConverterService
+    let segmentService: SegmentService
+
     var body: some View {
         VStack(spacing: 0) {
-            SegmentView(segments: allSegments, onChange: onSegmentChange, selected: $segment)
-                .background(Color.accent3.opacity(0.6))
+            SegmentView(
+                segmentService: segmentService,
+                willChange: onSegmentWillChange,
+                didChange: onSegmentDidChange,
+                selected: $segment
+            )
+            .background(Color.accent3.opacity(0.6))
             Divider()
                 .frame(height: 4)
                 .overlay(.white)
@@ -27,14 +33,14 @@ struct UnitConverterView: View {
                 GeometryReader { geometry in
                     HStack(spacing: 0) {
                         UnitsView(
-                            unitData: segment.unitRowsdata,
+                            unitData: segment.initialUnitRowsData,
                             activeIndex: $initialIndex,
                             value: $value,
                             visibleContentLength: geometry.size.height,
                             onChangeActiveIndex: { _ in recalculate() }
                         )
                         UnitsView(
-                            unitData: segment.unitRowsdata,
+                            unitData: segment.goalUnitRowsData,
                             activeIndex: $goalIndex,
                             value: $convertedValue,
                             visibleContentLength: geometry.size.height,
@@ -62,9 +68,31 @@ struct UnitConverterView: View {
         .background(Color.accent3Highlighted.opacity(0.4))
     }
 
-    private func onSegmentChange() {
-        initialIndex = 0
-        goalIndex = 1
+    init(converterService: ConverterService = ConverterService(),
+         segmentService: SegmentService = SegmentService(),
+         initialIndex: Int = Constants.initialIndex,
+         goalIndex: Int = Constants.goalIndex,
+         value: String = Constants.initialValue,
+         convertedValue: String = Constants.initialValue
+    ) {
+        self.converterService = converterService
+        self.segmentService = segmentService
+        self._initialIndex = State(initialValue: initialIndex)
+        self._goalIndex = State(initialValue: goalIndex)
+        self._value = State(initialValue: value)
+        self._convertedValue = State(initialValue: convertedValue)
+        self._segment = State(initialValue: segmentService.currentSegment)
+    }
+
+    private func onSegmentWillChange() {
+        guard value != Constants.initialValue else { return }
+        segmentService.moveToTheTopInitialUnit(with: initialIndex)
+        segmentService.moveToTheTopGoalUnit(with: goalIndex)
+    }
+
+    private func onSegmentDidChange() {
+        initialIndex = Constants.initialIndex
+        goalIndex = Constants.goalIndex
         recalculate()
     }
 
@@ -74,8 +102,8 @@ struct UnitConverterView: View {
             return
         }
         let goalNumber = converterService.convert(
-            from: segment.unitsValue()[initialIndex],
-            to: segment.unitsValue() [goalIndex],
+            from: segment.initialUnitsValue[initialIndex],
+            to: segment.goalUnitsValue[goalIndex],
             value: value.doubleOrZero
         )
         convertedValue = goalNumber
@@ -89,6 +117,6 @@ struct UnitConverterView: View {
 
 struct UnitConverterView_Previews: PreviewProvider {
     static var previews: some View {
-        UnitConverterView(segment: MassSegment())
+        UnitConverterView()
     }
 }

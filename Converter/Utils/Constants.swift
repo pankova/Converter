@@ -7,4 +7,6 @@
 
 enum Constants {
     static let initialValue = "0"
+    static let initialIndex = 0
+    static let goalIndex = 0
 }

@@ -43,7 +43,7 @@
 		4462288C2A71907B00D04CE6 /* TemperatureSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4462288B2A71907B00D04CE6 /* TemperatureSegment.swift */; };
 		4462288E2A71908800D04CE6 /* LengthSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4462288D2A71908800D04CE6 /* LengthSegment.swift */; };
 		446228902A71909300D04CE6 /* MassSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4462288F2A71909300D04CE6 /* MassSegment.swift */; };
-		446228922A7190A900D04CE6 /* AllSegments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446228912A7190A900D04CE6 /* AllSegments.swift */; };
+		446228922A7190A900D04CE6 /* SegmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446228912A7190A900D04CE6 /* SegmentService.swift */; };
 		448834A22A5BA3A600B87509 /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448834A12A5BA3A600B87509 /* NumberView.swift */; };
 		448834A62A5BA4DE00B87509 /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448834A52A5BA4DE00B87509 /* ButtonType.swift */; };
 		448834A82A5BA4FB00B87509 /* ButtonPadStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448834A72A5BA4FB00B87509 /* ButtonPadStyle.swift */; };
@@ -104,7 +104,7 @@
 		4462288B2A71907B00D04CE6 /* TemperatureSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureSegment.swift; sourceTree = "<group>"; };
 		4462288D2A71908800D04CE6 /* LengthSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthSegment.swift; sourceTree = "<group>"; };
 		4462288F2A71909300D04CE6 /* MassSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassSegment.swift; sourceTree = "<group>"; };
-		446228912A7190A900D04CE6 /* AllSegments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSegments.swift; sourceTree = "<group>"; };
+		446228912A7190A900D04CE6 /* SegmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentService.swift; sourceTree = "<group>"; };
 		448834A12A5BA3A600B87509 /* NumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
 		448834A52A5BA4DE00B87509 /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
 		448834A72A5BA4FB00B87509 /* ButtonPadStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPadStyle.swift; sourceTree = "<group>"; };
@@ -245,6 +245,7 @@
 		4462286C2A705C7500D04CE6 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				446228912A7190A900D04CE6 /* SegmentService.swift */,
 				4462286D2A705C9000D04CE6 /* ConverterService.swift */,
 			);
 			path = Service;
@@ -254,7 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				446228822A7071BC00D04CE6 /* UnitSegment.swift */,
-				446228912A7190A900D04CE6 /* AllSegments.swift */,
 				4443643C2A86C2680040220C /* Segments */,
 			);
 			path = Units;
@@ -421,7 +421,7 @@
 				448834AA2A5BA51300B87509 /* Digit.swift in Sources */,
 				444364372A86C0DC0040220C /* FuelEfficiencySegment.swift in Sources */,
 				444364352A86C0C50040220C /* EnergySegment.swift in Sources */,
-				446228922A7190A900D04CE6 /* AllSegments.swift in Sources */,
+				446228922A7190A900D04CE6 /* SegmentService.swift in Sources */,
 				44FC5B772A719BF90000A5AD /* Unit+Extension.swift in Sources */,
 				449FCBF72A79826100008856 /* NumberFormatter+Extension.swift in Sources */,
 				4443642D2A8564D20040220C /* Padding.swift in Sources */,

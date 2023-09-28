@@ -8,7 +8,7 @@
 import Foundation
 
 struct LengthSegment: UnitSegment {
-    var units: [UnitLength] = [
+    static let allUnits: [UnitLength] = [
         .feet,
         .inches,
         .centimeters,
@@ -32,5 +32,16 @@ struct LengthSegment: UnitSegment {
         .astronomicalUnits,
         .parsecs
     ]
-    let title = "Length"
+
+    let type = SegmentType.length
+    let keyedUnits: [Int: UnitLength]
+
+    var initialUnits: [Int]
+    var goalUnits: [Int]
+
+    init () {
+        self.initialUnits = Array(0..<Self.allUnits.count)
+        self.goalUnits = Array(0..<Self.allUnits.count)
+        self.keyedUnits = Dictionary(uniqueKeysWithValues: zip(0..<Self.allUnits.count, Self.allUnits))
+    }
 }

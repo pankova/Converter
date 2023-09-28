@@ -8,7 +8,7 @@
 import Foundation
 
 struct StorageSegment: UnitSegment {
-    var units: [UnitInformationStorage] = [
+    static let allUnits: [UnitInformationStorage] = [
         .bytes,
         .bits,
         .nibbles,
@@ -49,5 +49,17 @@ struct StorageSegment: UnitSegment {
         .mebibits,
         .kibibits
     ]
-    let title = "Storage"
+
+    let type = SegmentType.storage
+    let keyedUnits: [Int: UnitInformationStorage]
+
+    var initialUnits: [Int]
+    var goalUnits: [Int]
+
+    init () {
+        self.initialUnits = Array(0..<Self.allUnits.count)
+        self.goalUnits = Array(0..<Self.allUnits.count)
+        self.keyedUnits = Dictionary(uniqueKeysWithValues: zip(0..<Self.allUnits.count, Self.allUnits))
+    }
+
 }

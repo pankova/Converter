@@ -8,10 +8,21 @@
 import Foundation
 
 struct TemperatureSegment: UnitSegment {
-    var units: [UnitTemperature] = [
+    static let allUnits: [UnitTemperature] = [
         .celsius,
         .fahrenheit,
         .kelvin,
     ]
-    let title = "Temperature"
+
+    let type = SegmentType.temperature
+    let keyedUnits: [Int: UnitTemperature]
+
+    var initialUnits: [Int]
+    var goalUnits: [Int]
+
+    init () {
+        self.initialUnits = Array(0..<Self.allUnits.count)
+        self.goalUnits = Array(0..<Self.allUnits.count)
+        self.keyedUnits = Dictionary(uniqueKeysWithValues: zip(0..<Self.allUnits.count, Self.allUnits))
+    }
 }

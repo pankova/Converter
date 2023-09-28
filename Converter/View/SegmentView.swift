@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct SegmentView: View {
-    var segments: [any UnitSegment]
-    var onChange: VoidBlock
+    let segmentService: SegmentService
+
+    var willChange: VoidBlock
+    var didChange: VoidBlock
     @Binding var selected: any UnitSegment
+
     private let generator = UIImpactFeedbackGenerator(style: .light)
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             ScrollViewReader { proxy in
                 HStack {
-                    ForEach(segments, id: \.title) { segment in
+                    ForEach(segmentService.allSegments, id: \.title) { segment in
                         ZStack {
                             Text(segment.title)
                                 .padding(6)
@@ -37,9 +40,11 @@ struct SegmentView: View {
                                 .gesture(
                                     TapGesture()
                                         .onEnded{ gesture in
+                                            willChange()
                                             selected = segment
+                                            segmentService.updateCurrentSegment(segment)
                                             generator.impactOccurred()
-                                            onChange()
+                                            didChange()
                                             withAnimation {
                                                 proxy.scrollTo(segment, anchor: .center)
                                             }
@@ -57,6 +62,6 @@ struct SegmentView: View {
 
 struct SegmentView_Previews: PreviewProvider {
     static var previews: some View {
-        SegmentView(segments: allSegments, onChange: { }, selected: .constant(MassSegment()))
+        SegmentView(segmentService: SegmentService(), willChange: { }, didChange: { }, selected: .constant(MassSegment()))
     }
 }

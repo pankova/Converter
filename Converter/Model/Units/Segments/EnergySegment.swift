@@ -8,12 +8,23 @@
 import Foundation
 
 struct EnergySegment: UnitSegment {
-    var units: [UnitEnergy] = [
+    static let allUnits: [UnitEnergy] = [
         .joules,
         .calories,
         .kilojoules,
         .kilocalories,
         .kilowattHours
     ]
-    let title = "Energy"
+
+    let type = SegmentType.energy
+    let keyedUnits: [Int: UnitEnergy]
+
+    var initialUnits: [Int]
+    var goalUnits: [Int]
+
+    init () {
+        self.initialUnits = Array(0..<Self.allUnits.count)
+        self.goalUnits = Array(0..<Self.allUnits.count)
+        self.keyedUnits = Dictionary(uniqueKeysWithValues: zip(0..<Self.allUnits.count, Self.allUnits))
+    }
 }

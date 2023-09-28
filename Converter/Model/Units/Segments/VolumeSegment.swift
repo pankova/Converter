@@ -8,7 +8,7 @@
 import Foundation
 
 struct VolumeSegment: UnitSegment {
-    var units: [UnitVolume] = [
+    static let allUnits: [UnitVolume] = [
         .cups,
         .gallons,
         .quarts,
@@ -41,5 +41,17 @@ struct VolumeSegment: UnitSegment {
         .imperialGallons,
         .metricCups
     ]
-    let title = "Volume"
+
+    let type = SegmentType.volume
+    let keyedUnits: [Int: UnitVolume]
+
+    var initialUnits: [Int]
+    var goalUnits: [Int]
+
+    init () {
+        self.initialUnits = Array(0..<Self.allUnits.count)
+        self.goalUnits = Array(0..<Self.allUnits.count)
+        self.keyedUnits = Dictionary(uniqueKeysWithValues: zip(0..<Self.allUnits.count, Self.allUnits))
+    }
+
 }

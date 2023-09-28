@@ -8,7 +8,7 @@
 import Foundation
 
 struct DurationSegment: UnitSegment {
-    var units: [UnitDuration] = [
+    static let allUnits: [UnitDuration] = [
         .hours,
         .minutes,
         .seconds,
@@ -17,5 +17,16 @@ struct DurationSegment: UnitSegment {
         .nanoseconds,
         .picoseconds
     ]
-    let title = "Duration"
+
+    let type = SegmentType.duration
+    let keyedUnits: [Int: UnitDuration]
+
+    var initialUnits: [Int]
+    var goalUnits: [Int]
+
+    init () {
+        self.initialUnits = Array(0..<Self.allUnits.count)
+        self.goalUnits = Array(0..<Self.allUnits.count)
+        self.keyedUnits = Dictionary(uniqueKeysWithValues: zip(0..<Self.allUnits.count, Self.allUnits))
+    }
 }
