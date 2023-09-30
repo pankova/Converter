@@ -7,7 +7,8 @@
 
 // TODO: Protocol
 final class SegmentService {
-    var allSegments: [any UnitSegment] = [
+
+    private(set) var allSegments: [any UnitSegment] = [
         MassSegment(),
         LengthSegment(),
         TemperatureSegment(),
@@ -22,13 +23,17 @@ final class SegmentService {
         PowerSegment(),
     ]
 
-    var currentSegmentIndex: Int
-
-    var currentSegment: any UnitSegment {
-        allSegments[currentSegmentIndex]
+    private(set) var currentSegment: any UnitSegment {
+        get {
+            allSegments[currentSegmentIndex]
+        }
+        set {
+            allSegments[currentSegmentIndex] = newValue
+        }
     }
 
     private let storage: SegmentStorage
+    private var currentSegmentIndex: Int
 
     init(storage: SegmentStorage = UserDefaultsSegmentStorage()) {
         self.storage = storage
@@ -36,11 +41,11 @@ final class SegmentService {
     }
 
     func moveToTheTopInitialUnit(with index: Int) {
-        allSegments[currentSegmentIndex].moveToTheTopInitialUnit(with: index)
+        currentSegment.moveToTheTopInitialUnit(with: index)
     }
 
     func moveToTheTopGoalUnit(with index: Int) {
-        allSegments[currentSegmentIndex].moveToTheTopGoalUnit(with: index)
+        currentSegment.moveToTheTopGoalUnit(with: index)
     }
 
     func updateCurrentSegment(_ segment: any UnitSegment) {
@@ -49,6 +54,6 @@ final class SegmentService {
     }
 
     func updateValue(_ value: String) {
-        allSegments[currentSegmentIndex].value =  value
+        currentSegment.value =  value
     }
 }
