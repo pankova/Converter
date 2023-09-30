@@ -27,8 +27,10 @@ struct PowerSegment: UnitSegment {
 
     var initialUnits: [Int]
     var goalUnits: [Int]
+    var value: String
 
-    init () {
+    init (value: String = Constants.initialValue) {
+        self.value = value
         self.initialUnits = Array(0..<Self.allUnits.count)
         self.goalUnits = Array(0..<Self.allUnits.count)
         self.keyedUnits = Dictionary(uniqueKeysWithValues: zip(0..<Self.allUnits.count, Self.allUnits))

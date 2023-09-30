@@ -16,6 +16,7 @@ protocol UnitSegment: Hashable {
     var initialUnits: [Int] { get set }
     var goalUnits: [Int] { get set }
     var type: SegmentType { get }
+    var value: String { get set }
 }
 
 extension UnitSegment {
