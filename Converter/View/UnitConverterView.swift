@@ -69,7 +69,7 @@ struct UnitConverterView: View {
     }
 
     init(converterService: ConverterService = ConverterService(),
-         segmentService: SegmentService = SegmentService(),
+         segmentService: SegmentService = SegmentServiceImpl(),
          initialIndex: Int = Constants.initialIndex,
          goalIndex: Int = Constants.goalIndex,
          convertedValue: String = Constants.initialValue
@@ -85,12 +85,11 @@ struct UnitConverterView: View {
 
     private func onSegmentWillChange() {
         guard value != Constants.initialValue else { return }
-        segmentService.moveToTheTopInitialUnit(with: initialIndex)
-        segmentService.moveToTheTopGoalUnit(with: goalIndex)
-        segmentService.updateValue(value)
+        segmentService.updateSegmentUsage(with: value, initialIndex, goalIndex)
     }
 
     private func onSegmentDidChange() {
+        segmentService.updateCurrentSegment(segment)
         initialIndex = Constants.initialIndex
         goalIndex = Constants.goalIndex
         value = segmentService.currentSegment.value

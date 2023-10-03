@@ -42,7 +42,6 @@ struct SegmentView: View {
                                         .onEnded{ gesture in
                                             willChange()
                                             selected = segment
-                                            segmentService.updateCurrentSegment(segment)
                                             generator.impactOccurred()
                                             didChange()
                                             withAnimation {
@@ -62,6 +61,6 @@ struct SegmentView: View {
 
 struct SegmentView_Previews: PreviewProvider {
     static var previews: some View {
-        SegmentView(segmentService: SegmentService(), willChange: { }, didChange: { }, selected: .constant(MassSegment()))
+        SegmentView(segmentService: SegmentServiceImpl(), willChange: { }, didChange: { }, selected: .constant(MassSegment()))
     }
 }

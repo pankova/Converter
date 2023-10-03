@@ -54,6 +54,8 @@
 		44F4D3282AC62C4B007BB6B8 /* SegmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4D3272AC62C4B007BB6B8 /* SegmentType.swift */; };
 		44F4D32A2AC62C5E007BB6B8 /* SegmentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4D3292AC62C5E007BB6B8 /* SegmentStorage.swift */; };
 		44F4D32C2AC62C7C007BB6B8 /* UserDefaultsSegmentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4D32B2AC62C7C007BB6B8 /* UserDefaultsSegmentStorage.swift */; };
+		44F4D32F2ACCD71E007BB6B8 /* SegmentServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4D32E2ACCD71E007BB6B8 /* SegmentServiceImpl.swift */; };
+		44F4D3312ACCD759007BB6B8 /* SegmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4D3302ACCD759007BB6B8 /* SegmentData.swift */; };
 		44FC5B772A719BF90000A5AD /* Unit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FC5B762A719BF90000A5AD /* Unit+Extension.swift */; };
 		44FC5B792A719C080000A5AD /* MeasurementFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FC5B782A719C080000A5AD /* MeasurementFormatter+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -119,6 +121,8 @@
 		44F4D3272AC62C4B007BB6B8 /* SegmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentType.swift; sourceTree = "<group>"; };
 		44F4D3292AC62C5E007BB6B8 /* SegmentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentStorage.swift; sourceTree = "<group>"; };
 		44F4D32B2AC62C7C007BB6B8 /* UserDefaultsSegmentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSegmentStorage.swift; sourceTree = "<group>"; };
+		44F4D32E2ACCD71E007BB6B8 /* SegmentServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentServiceImpl.swift; sourceTree = "<group>"; };
+		44F4D3302ACCD759007BB6B8 /* SegmentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentData.swift; sourceTree = "<group>"; };
 		44FC5B762A719BF90000A5AD /* Unit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unit+Extension.swift"; sourceTree = "<group>"; };
 		44FC5B782A719C080000A5AD /* MeasurementFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasurementFormatter+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,6 +260,7 @@
 			children = (
 				446228912A7190A900D04CE6 /* SegmentService.swift */,
 				4462286D2A705C9000D04CE6 /* ConverterService.swift */,
+				44F4D32E2ACCD71E007BB6B8 /* SegmentServiceImpl.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 			children = (
 				44F4D32B2AC62C7C007BB6B8 /* UserDefaultsSegmentStorage.swift */,
 				44F4D3292AC62C5E007BB6B8 /* SegmentStorage.swift */,
+				44F4D3302ACCD759007BB6B8 /* SegmentData.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -415,6 +421,7 @@
 				4455A4A72A69E18A00849DB8 /* UnitView.swift in Sources */,
 				4462286E2A705C9000D04CE6 /* ConverterService.swift in Sources */,
 				4457ABBB2A5B442C00EA547C /* SegmentView.swift in Sources */,
+				44F4D32F2ACCD71E007BB6B8 /* SegmentServiceImpl.swift in Sources */,
 				4412553E2A721DCF00858ADE /* VoidBlock.swift in Sources */,
 				4455A4A92A69E18A00849DB8 /* UnitRow.swift in Sources */,
 				4455A4A62A69E18A00849DB8 /* UnitRowsData.swift in Sources */,
@@ -431,6 +438,7 @@
 				441255442A7502CD00858ADE /* String+Extension.swift in Sources */,
 				444364392A86C0EE0040220C /* StorageSegment.swift in Sources */,
 				44FC5B792A719C080000A5AD /* MeasurementFormatter+Extension.swift in Sources */,
+				44F4D3312ACCD759007BB6B8 /* SegmentData.swift in Sources */,
 				448834A22A5BA3A600B87509 /* NumberView.swift in Sources */,
 				4455A49D2A69E08B00849DB8 /* Orientation.swift in Sources */,
 				4443642F2A8564E80040220C /* Font.swift in Sources */,
