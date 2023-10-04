@@ -10,7 +10,8 @@ import Foundation
 extension NumberFormatter {
     static let outputFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 3
+        formatter.maximumFractionDigits = 10
+        formatter.decimalSeparator = ButtonType.decimal.description
         return formatter
     }()
 

@@ -14,6 +14,8 @@ struct UnitConverterView: View {
     @State var convertedValue: String
     @State var segment: any UnitSegment
 
+    @Environment(\.scenePhase) private var scenePhase
+
     let converterService: ConverterService
     let segmentService: SegmentService
 
@@ -64,8 +66,16 @@ struct UnitConverterView: View {
             ButtonPadView(value: $value, reverseAction: reverse)
                 .padding([.top, .bottom], Padding.inner)
         }
-        .onChange(of: value, perform: { _ in recalculate() })
         .background(Color.accent3Highlighted.opacity(0.4))
+        .onAppear() {
+            recalculate()
+        }
+        .onChange(of: value, perform: { _ in recalculate() })
+        .onChange(of: scenePhase) { phase in
+            if phase == .inactive {
+                saveSegmentUsage()
+            }
+        }
     }
 
     init(converterService: ConverterService = ConverterService(),
@@ -84,6 +94,10 @@ struct UnitConverterView: View {
     }
 
     private func onSegmentWillChange() {
+        saveSegmentUsage()
+    }
+
+    private func saveSegmentUsage() {
         guard value != Constants.initialValue else { return }
         segmentService.updateSegmentUsage(with: value, initialIndex, goalIndex)
     }
