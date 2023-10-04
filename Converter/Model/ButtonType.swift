@@ -13,7 +13,7 @@ enum ButtonType: CustomStringConvertible, Hashable {
     case clearSymbol
     case clearAll
     case decimal
-    case reverse
+    case invert
     case plusMinus
 
     var description: String {
@@ -26,7 +26,7 @@ enum ButtonType: CustomStringConvertible, Hashable {
             return "C"
         case .decimal:
             return "."
-        case .reverse:
+        case .invert:
             return "↔"
         case .plusMinus:
             return "±"
@@ -37,7 +37,7 @@ enum ButtonType: CustomStringConvertible, Hashable {
         switch self {
         case .digit, .decimal:
             return .white
-        case .clearSymbol, .clearAll, .reverse, .plusMinus:
+        case .clearSymbol, .clearAll, .invert, .plusMinus:
             return .white
         }
     }
@@ -46,7 +46,7 @@ enum ButtonType: CustomStringConvertible, Hashable {
         switch self {
         case .digit, .decimal:
             return .accent3
-        case .clearSymbol, .clearAll, .reverse, .plusMinus:
+        case .clearSymbol, .clearAll, .invert, .plusMinus:
             return .accent2
         }
     }

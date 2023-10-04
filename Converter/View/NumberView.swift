@@ -40,6 +40,6 @@ struct NumberView: View {
 
 struct NumberView_Previews: PreviewProvider {
     static var previews: some View {
-        NumberView(buttonType: .reverse, action: { })
+        NumberView(buttonType: .invert, action: { })
     }
 }

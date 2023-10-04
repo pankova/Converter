@@ -63,17 +63,17 @@ struct UnitConverterView: View {
             Divider()
                 .frame(height: 4)
                 .overlay(.white)
-            ButtonPadView(value: $value, reverseAction: reverse)
+            ButtonPadView(value: $value, invertAction: invert)
                 .padding([.top, .bottom], Padding.inner)
         }
         .background(Color.accent3Highlighted.opacity(0.4))
-        .onAppear() {
-            recalculate()
+        .onAppear(perform: recalculate)
+        .onChange(of: value) { [value] newValue in
+            valueDidChanged(from: value, to: newValue)
         }
-        .onChange(of: value, perform: { _ in recalculate() })
         .onChange(of: scenePhase) { phase in
             if phase == .inactive {
-                saveSegmentUsage()
+                saveSegmentUsageIfValueChanged()
             }
         }
     }
@@ -94,11 +94,15 @@ struct UnitConverterView: View {
     }
 
     private func onSegmentWillChange() {
+        saveSegmentUsageIfValueChanged()
+    }
+
+    private func saveSegmentUsageIfValueChanged() {
+        guard value != Constants.initialValue else { return }
         saveSegmentUsage()
     }
 
     private func saveSegmentUsage() {
-        guard value != Constants.initialValue else { return }
         segmentService.updateSegmentUsage(with: value, initialIndex, goalIndex)
     }
 
@@ -107,6 +111,13 @@ struct UnitConverterView: View {
         initialIndex = Constants.initialIndex
         goalIndex = Constants.goalIndex
         value = segmentService.currentSegment.value
+        recalculate()
+    }
+
+    private func valueDidChanged(from: String, to: String) {
+        if to == Constants.initialValue && from != Constants.initialValue {
+            saveSegmentUsage()
+        }
         recalculate()
     }
 
@@ -123,7 +134,7 @@ struct UnitConverterView: View {
         convertedValue = goalNumber
     }
 
-    func reverse() {
+    func invert() {
         guard let newInitialIndex = segment.initialUnits.firstIndex(of: segment.goalUnits[goalIndex]),
               let newGoalIndex = segment.goalUnits.firstIndex(of: segment.initialUnits[initialIndex]) else { return }
         initialIndex = newInitialIndex

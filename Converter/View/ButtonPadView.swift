@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ButtonPadView: View {
     @Binding var value: String
-    var reverseAction: VoidBlock?
+    var invertAction: VoidBlock?
 
     var buttonTypes: [[ButtonType]] {
         [
             [.digit(.seven), .digit(.eight), .digit(.nine), .clearSymbol],
-            [.digit(.four), .digit(.five), .digit(.six), .reverse],
+            [.digit(.four), .digit(.five), .digit(.six), .invert],
             [.digit(.one), .digit(.two), .digit(.three), .plusMinus],
             [.clearAll, .digit(.zero), .decimal]
         ]
@@ -41,8 +41,8 @@ struct ButtonPadView: View {
             return clearSymbol
         case .clearAll:
             return clear
-        case .reverse:
-            return reverse
+        case .invert:
+            return invert
         case .plusMinus:
             return changeSign
         default:
@@ -66,8 +66,8 @@ struct ButtonPadView: View {
         value = NumberFormatter.outputFormatter.string(from: -numberValue)
     }
 
-    func reverse() {
-        reverseAction?()
+    func invert() {
+        invertAction?()
     }
 
     func clearSymbol() {
