@@ -124,7 +124,10 @@ struct UnitConverterView: View {
     }
 
     func reverse() {
-        swap(&initialIndex, &goalIndex)
+        guard let newInitialIndex = segment.initialUnits.firstIndex(of: segment.goalUnits[goalIndex]),
+              let newGoalIndex = segment.goalUnits.firstIndex(of: segment.initialUnits[initialIndex]) else { return }
+        initialIndex = newInitialIndex
+        goalIndex = newGoalIndex
         recalculate()
     }
 }
