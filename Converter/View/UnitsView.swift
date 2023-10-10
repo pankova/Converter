@@ -16,7 +16,6 @@ struct UnitsView: View {
     let itemSide: CGFloat
     let itemPadding: CGFloat
     let visibleContentLength: CGFloat
-    let onChangeActiveIndex: (Int) -> ()
     private let generator = UIImpactFeedbackGenerator(style: .medium)
 
     var body: some View {
@@ -47,7 +46,6 @@ struct UnitsView: View {
                 .clipped()
                 .onChange(of: activeIndex, perform: { index in
                     generator.impactOccurred()
-                    onChangeActiveIndex(index)
                 })
             }
         }
@@ -59,20 +57,18 @@ struct UnitsView: View {
          value: Binding<String>,
          itemSide: CGFloat = UIDevice.isIpad ? 120 : 80,
          itemPadding: CGFloat = 16,
-         visibleContentLength: CGFloat = 300,
-         onChangeActiveIndex: @escaping (Int) -> ()) {
+         visibleContentLength: CGFloat = 300) {
         self.itemSide = itemSide
         self._activeIndex = activeIndex
         self._value = value
         self.itemPadding = itemPadding
         self.visibleContentLength = visibleContentLength
         self.unitData = unitData
-        self.onChangeActiveIndex = onChangeActiveIndex
     }
 }
 
 struct UnitsView_Previews: PreviewProvider {
     static var previews: some View {
-        UnitsView(unitData: .init(units: []), activeIndex: .constant(0), value: .constant(""), onChangeActiveIndex: { _ in })
+        UnitsView(unitData: .init(units: []), activeIndex: .constant(0), value: .constant(""))
     }
 }

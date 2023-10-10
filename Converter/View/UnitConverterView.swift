@@ -38,15 +38,13 @@ struct UnitConverterView: View {
                             unitData: segment.initialUnitRowsData,
                             activeIndex: $initialIndex,
                             value: $value,
-                            visibleContentLength: geometry.size.height,
-                            onChangeActiveIndex: { _ in recalculate() }
+                            visibleContentLength: geometry.size.height
                         )
                         UnitsView(
                             unitData: segment.goalUnitRowsData,
                             activeIndex: $goalIndex,
                             value: $convertedValue,
-                            visibleContentLength: geometry.size.height,
-                            onChangeActiveIndex: { _ in recalculate() }
+                            visibleContentLength: geometry.size.height
                         )
                     }
                 }
@@ -68,6 +66,8 @@ struct UnitConverterView: View {
         }
         .background(Color.accent3Highlighted.opacity(0.4))
         .onAppear(perform: recalculate)
+        .onChange(of: initialIndex) { _ in recalculate() }
+        .onChange(of: goalIndex) { _ in recalculate() }
         .onChange(of: value) { [value] newValue in
             valueDidChanged(from: value, to: newValue)
         }
