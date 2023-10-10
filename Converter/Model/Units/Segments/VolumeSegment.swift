@@ -10,12 +10,9 @@ import Foundation
 struct VolumeSegment: UnitSegment {
     static let allUnits: [UnitVolume] = [
         .cups,
+        .imperialGallons,
         .gallons,
-        .quarts,
         .liters,
-        .pints,
-        .tablespoons,
-        .teaspoons,
         .megaliters,
         .kiloliters,
         .deciliters,
@@ -31,15 +28,19 @@ struct VolumeSegment: UnitSegment {
         .cubicYards,
         .cubicMiles,
         .acreFeet,
-        .bushels,
-        .fluidOunces,
-        .imperialTeaspoons,
-        .imperialTablespoons,
-        .imperialFluidOunces,
-        .imperialPints,
-        .imperialQuarts,
-        .imperialGallons,
-        .metricCups
+        .bushels, 
+        .metricCups,
+//         https://developer.apple.com/forums/thread/739356
+//        .imperialQuarts,
+//        .quarts,
+//        .imperialPints,
+//        .pints,
+//        .imperialTeaspoons,
+//        .teaspoons,
+//        .imperialTablespoons,
+//        .tablespoons,
+//        .imperialFluidOunces,
+//        .fluidOunces,
     ]
 
     let type = SegmentType.volume
