@@ -9,13 +9,14 @@ import SwiftUI
 
 struct UnitsView: View {
 
-    @Binding var value: String
     @Binding var activeIndex: Int
 
+    let value: String
     let unitData: UnitRowsData
     let itemSide: CGFloat
     let itemPadding: CGFloat
     let visibleContentLength: CGFloat
+
     private let generator = UIImpactFeedbackGenerator(style: .medium)
 
     var body: some View {
@@ -49,18 +50,17 @@ struct UnitsView: View {
                 })
             }
         }
-
     }
 
     init(unitData: UnitRowsData,
          activeIndex: Binding<Int>,
-         value: Binding<String>,
+         value: String,
          itemSide: CGFloat = UIDevice.isIpad ? 120 : 80,
          itemPadding: CGFloat = 16,
          visibleContentLength: CGFloat = 300) {
         self.itemSide = itemSide
         self._activeIndex = activeIndex
-        self._value = value
+        self.value = value
         self.itemPadding = itemPadding
         self.visibleContentLength = visibleContentLength
         self.unitData = unitData
@@ -69,6 +69,6 @@ struct UnitsView: View {
 
 struct UnitsView_Previews: PreviewProvider {
     static var previews: some View {
-        UnitsView(unitData: .init(units: []), activeIndex: .constant(0), value: .constant(""))
+        UnitsView(unitData: .init(units: []), activeIndex: .constant(0), value: "")
     }
 }

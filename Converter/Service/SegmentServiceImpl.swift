@@ -5,7 +5,13 @@
 //  Created by Mariya Pankova on 03.10.2023.
 //
 
+import Combine
+
 final class SegmentServiceImpl: SegmentService {
+
+    private let storage: SegmentStorage
+
+    private(set) var currentSegment: CurrentValueSubject<any UnitSegment, Never>
 
     private(set) var allSegments: [any UnitSegment] = [
         MassSegment(),
@@ -22,34 +28,32 @@ final class SegmentServiceImpl: SegmentService {
         PowerSegment(),
     ]
 
-    private(set) var currentSegment: any UnitSegment {
-        get {
-            allSegments[currentSegmentIndex]
-        }
-        set {
-            allSegments[currentSegmentIndex] = newValue
+    private var currentSegmentIndex: Int {
+        didSet {
+            currentSegment.send(allSegments[currentSegmentIndex])
         }
     }
 
-    private let storage: SegmentStorage
-    private var currentSegmentIndex: Int
-
-    init(storage: SegmentStorage = UserDefaultsSegmentStorage()) {
+    init(
+        storage: SegmentStorage = UserDefaultsSegmentStorage(),
+        currentSegmentIndex: Int = 0
+    ) {
         self.storage = storage
-        self.currentSegmentIndex = 0
+        self.currentSegmentIndex = currentSegmentIndex
+        self.currentSegment = CurrentValueSubject(allSegments[currentSegmentIndex])
         retrieveSegments()
     }
 
-    func updateSegmentUsage(with value: String, _ initialIndex: Int, _ goalIndex: Int) {
-        currentSegment.value =  value
-        currentSegment.moveToTheTopInitialUnit(with: initialIndex)
-        currentSegment.moveToTheTopGoalUnit(with: goalIndex)
-        storage.updateSegment(currentSegment)
-    }
-
-    func updateCurrentSegment(_ segment: any UnitSegment) {
+    func changeCurrentSegment(to segment: any UnitSegment) {
         guard let index = allSegments.firstIndex(where: { $0.type == segment.type }) else { return }
         currentSegmentIndex = index
+    }
+
+    func saveSegmentUsage(with value: String, convertedFrom initialIndex: Int, to goalIndex: Int) {
+        currentSegment.value.value = value
+        currentSegment.value.moveToTheTopInitialUnit(with: initialIndex)
+        currentSegment.value.moveToTheTopGoalUnit(with: goalIndex)
+        storage.updateSegment(currentSegment.value)
     }
 
     private func retrieveSegments() {

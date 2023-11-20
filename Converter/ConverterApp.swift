@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct ConverterApp: App {
+
     var body: some Scene {
         WindowGroup {
-            UnitConverterView()
+            UnitConverterView(
+                viewModel: UnitConverterViewModel(
+                    initialIndex: Constants.initialIndex,
+                    goalIndex: Constants.goalIndex,
+                    convertedValue: Constants.initialValue, 
+                    calculationServise: AppContainer.shared.calculationServise,
+                    segmentService: AppContainer.shared.segmentService
+                )
+            )
         }
     }
 }

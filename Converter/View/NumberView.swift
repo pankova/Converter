@@ -5,25 +5,35 @@
 //  Created by Mariya Pankova on 09.07.2023.
 //
 
+import Combine
 import SwiftUI
 
 struct NumberView: View {
+
+    @StateObject var viewModel: NumberViewModel
+
     let buttonType: ButtonType
-    let action: VoidBlock
+
     private let generator = UIImpactFeedbackGenerator(style: .soft)
 
     var body: some View {
         Button(buttonType.description) {
             generator.impactOccurred()
-            action()
+            viewModel.action(buttonType)
         }
-            .buttonStyle(
-                ButtonPadStyle(
-                    size: buttonSize(),
-                    foregroundColor: buttonType.foregroundColor,
-                    backgroundColor: buttonType.backgroundColor
-                )
+        .buttonStyle(
+            ButtonPadStyle(
+                size: buttonSize(),
+                foregroundColor: buttonType.foregroundColor,
+                backgroundColor: buttonType.backgroundColor
             )
+        )
+    }
+
+    init(viewModel: @autoclosure @escaping () -> NumberViewModel,
+         buttonType: ButtonType) {
+        self._viewModel = StateObject(wrappedValue: viewModel())
+        self.buttonType = buttonType
     }
 
     private func buttonSize() -> CGFloat {
@@ -40,6 +50,12 @@ struct NumberView: View {
 
 struct NumberView_Previews: PreviewProvider {
     static var previews: some View {
-        NumberView(buttonType: .invert, action: { })
+        NumberView(
+            viewModel: .init(
+                calculationServise: AppContainer.shared.calculationServise,
+                segmentService: AppContainer.shared.segmentService
+            ),
+            buttonType: .invert
+        )
     }
 }
