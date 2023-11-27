@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 final class SegmentServiceImpl: SegmentService {
 
@@ -13,55 +14,38 @@ final class SegmentServiceImpl: SegmentService {
 
     private(set) var currentSegment: CurrentValueSubject<any UnitSegment, Never>
 
-    private(set) var allSegments: [any UnitSegment] = [
-        MassSegment(),
-        LengthSegment(),
-        TemperatureSegment(),
-        VolumeSegment(),
-        AreaSegment(),
-        SpeedSegment(),
-        DurationSegment(),
-        FuelEfficiencySegment(),
-        StorageSegment(),
-        EnergySegment(),
-        AngleSegment(),
-        PowerSegment(),
-    ]
+    private(set) var segments: [any UnitSegment]
 
     private var currentSegmentIndex: Int {
         didSet {
-            currentSegment.send(allSegments[currentSegmentIndex])
+            currentSegment.send(segments[currentSegmentIndex])
         }
     }
 
-    init(
-        storage: SegmentStorage = UserDefaultsSegmentStorage(),
-        currentSegmentIndex: Int = 0
-    ) {
+    init(storage: SegmentStorage = UserDefaultsSegmentStorage(),
+         currentSegmentIndex: Int = 0) {
         self.storage = storage
+        self.segments = storage.segments
         self.currentSegmentIndex = currentSegmentIndex
-        self.currentSegment = CurrentValueSubject(allSegments[currentSegmentIndex])
-        retrieveSegments()
+        self.currentSegment = CurrentValueSubject(segments[currentSegmentIndex])
     }
 
     func changeCurrentSegment(to segment: any UnitSegment) {
-        guard let index = allSegments.firstIndex(where: { $0.type == segment.type }) else { return }
+        guard let index = segments.firstIndex(where: { $0.type == segment.type }) else { return }
         currentSegmentIndex = index
     }
 
-    func saveSegmentUsage(with value: String, convertedFrom initialIndex: Int, to goalIndex: Int) {
-        currentSegment.value.value = value
-        currentSegment.value.moveToTheTopInitialUnit(with: initialIndex)
-        currentSegment.value.moveToTheTopGoalUnit(with: goalIndex)
-        storage.updateSegment(currentSegment.value)
+    func updateSegmentUsage(for segment: any UnitSegment,
+                            with value: String,
+                            convertedFrom initialIndex: Int,
+                            to goalIndex: Int) {
+        guard let index = segments.firstIndex(where: { $0.type == segment.type }) else { return }
+        segments[index].value = value
+        segments[index].moveToTheTopInitialUnit(with: initialIndex)
+        segments[index].moveToTheTopGoalUnit(with: goalIndex)
     }
 
-    private func retrieveSegments() {
-        for i in 0..<allSegments.count {
-            guard let userSegment = storage.retrieveSegment(allSegments[i]) else { continue }
-            allSegments[i].value = userSegment.value
-            allSegments[i].initialUnits = userSegment.initial
-            allSegments[i].goalUnits = userSegment.goal
-        }
+    func saveToStorage() {
+        storage.updateSegments(segments)
     }
 }

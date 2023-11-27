@@ -9,7 +9,7 @@ final class AppContainer {
 
     static let shared = AppContainer()
 
-    let calculationServise: CalculationServise = CalculationServiseImpl()
+    let calculationService: CalculationValueService = CalculationValueServiceImpl()
 
     let segmentService: SegmentService = SegmentServiceImpl()
 

@@ -1,5 +1,5 @@
 //
-//  CalculationServiseImpl.swift
+//  CalculationValueServiceImpl.swift
 //  Converter
 //
 //  Created by Mariya Pankova on 19.11.2023.
@@ -7,7 +7,8 @@
 
 import Combine
 
-final class CalculationServiseImpl: CalculationServise {
+final class CalculationValueServiceImpl: CalculationValueService {
+
     private(set) var value = CurrentValueSubject<String, Never>(Constants.initialValue)
     private(set) var invert = PassthroughSubject<Void, Never>()
 
@@ -15,7 +16,7 @@ final class CalculationServiseImpl: CalculationServise {
         self.value.send(value)
     }
 
-    func invertSign() {
+    func invertUnits() {
         invert.send()
     }
 }

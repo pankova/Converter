@@ -10,22 +10,28 @@ import SwiftUI
 
 final class NumberViewModel: ObservableObject {
 
-    private var calculationServise: CalculationServise
+    private var calculationService: CalculationValueService
     private var segmentService: SegmentService
 
     private var value: String {
         get {
-            calculationServise.value.value
+            calculationService.value.value
         }
         set {
-            calculationServise.update(with: newValue)
+            calculationService.update(with: newValue)
         }
     }
 
-    init(calculationServise: CalculationServise,
+    private var subscriptions = Set<AnyCancellable>()
+
+    init(calculationService: CalculationValueService,
          segmentService: SegmentService) {
-        self.calculationServise = calculationServise
+        self.calculationService = calculationService
         self.segmentService = segmentService
+    }
+
+    func viewDidAppear() {
+        setupSubscriptions()
     }
 
     func action(_ buttonType: ButtonType) {
@@ -35,7 +41,7 @@ final class NumberViewModel: ObservableObject {
         case .clearAll:
             clear()
         case .invert:
-            calculationServise.invert.send()
+            calculationService.invert.send()
         case .plusMinus:
             changeSign()
         default:
@@ -43,14 +49,21 @@ final class NumberViewModel: ObservableObject {
         }
     }
 
+    private func setupSubscriptions() {
+        segmentService.currentSegment
+            .sink(receiveValue: { [weak self] segment in
+                self?.value = segment.value
+            })
+            .store(in: &subscriptions)
+    }
+
     private func addDigit(_ buttonType: ButtonType) {
         if buttonType == .decimal && value.contains(buttonType.description) {
             return
         }
-        if buttonType != .decimal && value == Constants.initialValue {
-            value = ""
-        }
-        value += buttonType.description
+
+        let shouldClearZeroSymbol = buttonType != .decimal && value == Constants.initialValue
+        value = (shouldClearZeroSymbol ? "" : value) + buttonType.description
     }
 
     private func changeSign() {

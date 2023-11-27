@@ -17,7 +17,7 @@ struct ConverterApp: App {
                     initialIndex: Constants.initialIndex,
                     goalIndex: Constants.goalIndex,
                     convertedValue: Constants.initialValue, 
-                    calculationServise: AppContainer.shared.calculationServise,
+                    calculationService: AppContainer.shared.calculationService,
                     segmentService: AppContainer.shared.segmentService
                 )
             )

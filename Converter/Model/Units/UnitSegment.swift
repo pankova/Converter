@@ -12,6 +12,7 @@ protocol UnitSegment: Hashable {
     associatedtype UnitType: Dimension
 
     static var allUnits: [UnitType] { get }
+    
     var keyedUnits: [Int: UnitType] { get }
     var initialUnits: [Int] { get set }
     var goalUnits: [Int] { get set }
@@ -31,6 +32,7 @@ extension UnitSegment {
         }
         return units
     }
+    
     var goalUnitsValue: [UnitType] {
         var units: [UnitType] = []
         goalUnits.forEach {

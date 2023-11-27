@@ -55,8 +55,8 @@
 		44DB7F412B0441C20036C13D /* NumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F402B0441C20036C13D /* NumberViewModel.swift */; };
 		44DB7F452B055E940036C13D /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F442B055E940036C13D /* ViewFactory.swift */; };
 		44DB7F472B055EAA0036C13D /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F462B055EAA0036C13D /* AppContainer.swift */; };
-		44DB7F492B0ABD3C0036C13D /* CalculationServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F482B0ABD3C0036C13D /* CalculationServise.swift */; };
-		44DB7F4B2B0ABD4F0036C13D /* CalculationServiseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F4A2B0ABD4F0036C13D /* CalculationServiseImpl.swift */; };
+		44DB7F492B0ABD3C0036C13D /* CalculationValueServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F482B0ABD3C0036C13D /* CalculationValueServise.swift */; };
+		44DB7F4B2B0ABD4F0036C13D /* CalculationValueServiseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F4A2B0ABD4F0036C13D /* CalculationValueServiseImpl.swift */; };
 		44F4D3262AC62C3A007BB6B8 /* SegmentPurpose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4D3252AC62C3A007BB6B8 /* SegmentPurpose.swift */; };
 		44F4D3282AC62C4B007BB6B8 /* SegmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4D3272AC62C4B007BB6B8 /* SegmentType.swift */; };
 		44F4D32A2AC62C5E007BB6B8 /* SegmentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4D3292AC62C5E007BB6B8 /* SegmentStorage.swift */; };
@@ -129,8 +129,8 @@
 		44DB7F402B0441C20036C13D /* NumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewModel.swift; sourceTree = "<group>"; };
 		44DB7F442B055E940036C13D /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
 		44DB7F462B055EAA0036C13D /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
-		44DB7F482B0ABD3C0036C13D /* CalculationServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationServise.swift; sourceTree = "<group>"; };
-		44DB7F4A2B0ABD4F0036C13D /* CalculationServiseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationServiseImpl.swift; sourceTree = "<group>"; };
+		44DB7F482B0ABD3C0036C13D /* CalculationValueServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationValueServise.swift; sourceTree = "<group>"; };
+		44DB7F4A2B0ABD4F0036C13D /* CalculationValueServiseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationValueServiseImpl.swift; sourceTree = "<group>"; };
 		44F4D3252AC62C3A007BB6B8 /* SegmentPurpose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPurpose.swift; sourceTree = "<group>"; };
 		44F4D3272AC62C4B007BB6B8 /* SegmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentType.swift; sourceTree = "<group>"; };
 		44F4D3292AC62C5E007BB6B8 /* SegmentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentStorage.swift; sourceTree = "<group>"; };
@@ -275,9 +275,9 @@
 			children = (
 				446228912A7190A900D04CE6 /* SegmentService.swift */,
 				4462286D2A705C9000D04CE6 /* ConverterService.swift */,
-				44DB7F482B0ABD3C0036C13D /* CalculationServise.swift */,
+				44DB7F482B0ABD3C0036C13D /* CalculationValueServise.swift */,
 				44F4D32E2ACCD71E007BB6B8 /* SegmentServiceImpl.swift */,
-				44DB7F4A2B0ABD4F0036C13D /* CalculationServiseImpl.swift */,
+				44DB7F4A2B0ABD4F0036C13D /* CalculationValueServiseImpl.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -462,11 +462,11 @@
 				4457ABBB2A5B442C00EA547C /* SegmentView.swift in Sources */,
 				44DB7F3B2B043F260036C13D /* UnitConverterViewModel.swift in Sources */,
 				44F4D32F2ACCD71E007BB6B8 /* SegmentServiceImpl.swift in Sources */,
-				44DB7F492B0ABD3C0036C13D /* CalculationServise.swift in Sources */,
+				44DB7F492B0ABD3C0036C13D /* CalculationValueServise.swift in Sources */,
 				4455A4A92A69E18A00849DB8 /* UnitRow.swift in Sources */,
 				4455A4A62A69E18A00849DB8 /* UnitRowsData.swift in Sources */,
 				448834A62A5BA4DE00B87509 /* ButtonType.swift in Sources */,
-				44DB7F4B2B0ABD4F0036C13D /* CalculationServiseImpl.swift in Sources */,
+				44DB7F4B2B0ABD4F0036C13D /* CalculationValueServiseImpl.swift in Sources */,
 				44F4D3282AC62C4B007BB6B8 /* SegmentType.swift in Sources */,
 				4443643E2A8815940040220C /* Constants.swift in Sources */,
 				444364312A86C0A00040220C /* AngleSegment.swift in Sources */,

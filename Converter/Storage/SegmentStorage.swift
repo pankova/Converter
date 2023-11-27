@@ -7,6 +7,7 @@
 
 protocol SegmentStorage {
 
-    func retrieveSegment(_ segment: any UnitSegment) -> SegmentData?
-    func updateSegment(_ segment: any UnitSegment)
+    var segments: [any UnitSegment] { get }
+
+    func updateSegments(_ segments: [any UnitSegment])
 }

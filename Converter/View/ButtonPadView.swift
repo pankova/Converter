@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ButtonPadView: View {
 
-    @StateObject var viewModel = ButtonPadViewModel()
+    let viewModel = ButtonPadViewModel()
 
     var body: some View {
         VStack(alignment: .leading, spacing: Padding.inner) {

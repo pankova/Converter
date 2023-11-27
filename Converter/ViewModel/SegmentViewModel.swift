@@ -17,7 +17,7 @@ final class SegmentViewModel: ObservableObject {
     }
 
     var segments: [any UnitSegment] {
-        segmentService.allSegments
+        segmentService.segments
     }
 
     private let segmentService: any SegmentService

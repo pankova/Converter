@@ -9,7 +9,7 @@ struct ViewFactory {
 
     private static let container = AppContainer.shared
 
-    private static var calculationServise: CalculationServise { container.calculationServise }
+    private static var calculationService: CalculationValueService { container.calculationService }
     private static var segmentService:  SegmentService  { container.segmentService }
 
     static func segmentView() -> SegmentView {
@@ -19,7 +19,7 @@ struct ViewFactory {
     static func numberView(with buttonType: ButtonType) -> NumberView {
         NumberView(
             viewModel: NumberViewModel(
-                calculationServise: calculationServise,
+                calculationService: calculationService,
                 segmentService: segmentService
             ),
             buttonType: buttonType

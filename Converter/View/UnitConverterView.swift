@@ -14,8 +14,6 @@ struct UnitConverterView: View {
 
     @Environment(\.scenePhase) private var scenePhase
 
-    private var subscriptions = Set<AnyCancellable>()
-
     var body: some View {
         VStack(spacing: 0) {
             ViewFactory.segmentView()
@@ -58,7 +56,6 @@ struct UnitConverterView: View {
         }
         .background(Color.accent3Highlighted.opacity(0.4))
         .onAppear(perform: viewModel.recalculate)
-        .onChange(of: scenePhase, perform: viewModel.phaseDidChangeAction)
         .onChange(of: viewModel.initialIndex) { _ in viewModel.recalculate() }
         .onChange(of: viewModel.goalIndex) { _ in viewModel.recalculate() }
     }
@@ -75,7 +72,7 @@ struct UnitConverterView_Previews: PreviewProvider {
                 initialIndex: 0,
                 goalIndex: 0,
                 convertedValue: "",
-                calculationServise: AppContainer.shared.calculationServise,
+                calculationService: AppContainer.shared.calculationService,
                 segmentService: AppContainer.shared.segmentService
             )
         )

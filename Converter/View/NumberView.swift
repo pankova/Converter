@@ -28,6 +28,7 @@ struct NumberView: View {
                 backgroundColor: buttonType.backgroundColor
             )
         )
+        .onAppear(perform: viewModel.viewDidAppear)
     }
 
     init(viewModel: @autoclosure @escaping () -> NumberViewModel,
@@ -52,7 +53,7 @@ struct NumberView_Previews: PreviewProvider {
     static var previews: some View {
         NumberView(
             viewModel: .init(
-                calculationServise: AppContainer.shared.calculationServise,
+                calculationService: AppContainer.shared.calculationService,
                 segmentService: AppContainer.shared.segmentService
             ),
             buttonType: .invert
