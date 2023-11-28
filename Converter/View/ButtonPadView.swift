@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ButtonPadView: View {
 
-    let viewModel = ButtonPadViewModel()
+    let viewModel: ButtonPadViewModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: Padding.inner) {
@@ -21,6 +21,10 @@ struct ButtonPadView: View {
                 }
             }
         }
+    }
+
+    init(viewModel: @autoclosure @escaping () -> ButtonPadViewModel) {
+        self.viewModel = viewModel()
     }
 }
 

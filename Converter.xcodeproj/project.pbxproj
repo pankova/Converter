@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		441255442A7502CD00858ADE /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441255432A7502CD00858ADE /* String+Extension.swift */; };
 		441608522A7A03110059B215 /* UnitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441608512A7A03110059B215 /* UnitsView.swift */; };
+		442F36512B15AD38002FE757 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F36502B15AD38002FE757 /* AppState.swift */; };
+		442F36532B15AD85002FE757 /* OnFirstAppearModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F36522B15AD85002FE757 /* OnFirstAppearModifier.swift */; };
 		4443642D2A8564D20040220C /* Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4443642C2A8564D20040220C /* Padding.swift */; };
 		4443642F2A8564E80040220C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4443642E2A8564E80040220C /* Font.swift */; };
 		444364312A86C0A00040220C /* AngleSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444364302A86C0A00040220C /* AngleSegment.swift */; };
@@ -55,8 +57,6 @@
 		44DB7F412B0441C20036C13D /* NumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F402B0441C20036C13D /* NumberViewModel.swift */; };
 		44DB7F452B055E940036C13D /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F442B055E940036C13D /* ViewFactory.swift */; };
 		44DB7F472B055EAA0036C13D /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F462B055EAA0036C13D /* AppContainer.swift */; };
-		44DB7F492B0ABD3C0036C13D /* CalculationValueServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F482B0ABD3C0036C13D /* CalculationValueServise.swift */; };
-		44DB7F4B2B0ABD4F0036C13D /* CalculationValueServiseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F4A2B0ABD4F0036C13D /* CalculationValueServiseImpl.swift */; };
 		44F4D3262AC62C3A007BB6B8 /* SegmentPurpose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4D3252AC62C3A007BB6B8 /* SegmentPurpose.swift */; };
 		44F4D3282AC62C4B007BB6B8 /* SegmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4D3272AC62C4B007BB6B8 /* SegmentType.swift */; };
 		44F4D32A2AC62C5E007BB6B8 /* SegmentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4D3292AC62C5E007BB6B8 /* SegmentStorage.swift */; };
@@ -80,6 +80,8 @@
 /* Begin PBXFileReference section */
 		441255432A7502CD00858ADE /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		441608512A7A03110059B215 /* UnitsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitsView.swift; sourceTree = "<group>"; };
+		442F36502B15AD38002FE757 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		442F36522B15AD85002FE757 /* OnFirstAppearModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnFirstAppearModifier.swift; sourceTree = "<group>"; };
 		4443642C2A8564D20040220C /* Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Padding.swift; sourceTree = "<group>"; };
 		4443642E2A8564E80040220C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		444364302A86C0A00040220C /* AngleSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleSegment.swift; sourceTree = "<group>"; };
@@ -129,8 +131,6 @@
 		44DB7F402B0441C20036C13D /* NumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewModel.swift; sourceTree = "<group>"; };
 		44DB7F442B055E940036C13D /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
 		44DB7F462B055EAA0036C13D /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
-		44DB7F482B0ABD3C0036C13D /* CalculationValueServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationValueServise.swift; sourceTree = "<group>"; };
-		44DB7F4A2B0ABD4F0036C13D /* CalculationValueServiseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationValueServiseImpl.swift; sourceTree = "<group>"; };
 		44F4D3252AC62C3A007BB6B8 /* SegmentPurpose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPurpose.swift; sourceTree = "<group>"; };
 		44F4D3272AC62C4B007BB6B8 /* SegmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentType.swift; sourceTree = "<group>"; };
 		44F4D3292AC62C5E007BB6B8 /* SegmentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentStorage.swift; sourceTree = "<group>"; };
@@ -165,6 +165,7 @@
 				441255432A7502CD00858ADE /* String+Extension.swift */,
 				448C2B232A904BD9006D90A2 /* UIDevice+Extension.swift */,
 				44FC5B782A719C080000A5AD /* MeasurementFormatter+Extension.swift */,
+				442F36522B15AD85002FE757 /* OnFirstAppearModifier.swift */,
 				4443643D2A8815940040220C /* Constants.swift */,
 				44FC5B762A719BF90000A5AD /* Unit+Extension.swift */,
 				449FCBF62A79826100008856 /* NumberFormatter+Extension.swift */,
@@ -275,9 +276,7 @@
 			children = (
 				446228912A7190A900D04CE6 /* SegmentService.swift */,
 				4462286D2A705C9000D04CE6 /* ConverterService.swift */,
-				44DB7F482B0ABD3C0036C13D /* CalculationValueServise.swift */,
 				44F4D32E2ACCD71E007BB6B8 /* SegmentServiceImpl.swift */,
-				44DB7F4A2B0ABD4F0036C13D /* CalculationValueServiseImpl.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -332,6 +331,7 @@
 			children = (
 				44DB7F442B055E940036C13D /* ViewFactory.swift */,
 				44DB7F462B055EAA0036C13D /* AppContainer.swift */,
+				442F36502B15AD38002FE757 /* AppState.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -392,7 +392,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					4457AB8C2A5B38B500EA547C = {
 						CreatedOnToolsVersion = 14.0.1;
@@ -460,13 +460,12 @@
 				4455A4A72A69E18A00849DB8 /* UnitView.swift in Sources */,
 				4462286E2A705C9000D04CE6 /* ConverterService.swift in Sources */,
 				4457ABBB2A5B442C00EA547C /* SegmentView.swift in Sources */,
+				442F36532B15AD85002FE757 /* OnFirstAppearModifier.swift in Sources */,
 				44DB7F3B2B043F260036C13D /* UnitConverterViewModel.swift in Sources */,
 				44F4D32F2ACCD71E007BB6B8 /* SegmentServiceImpl.swift in Sources */,
-				44DB7F492B0ABD3C0036C13D /* CalculationValueServise.swift in Sources */,
 				4455A4A92A69E18A00849DB8 /* UnitRow.swift in Sources */,
 				4455A4A62A69E18A00849DB8 /* UnitRowsData.swift in Sources */,
 				448834A62A5BA4DE00B87509 /* ButtonType.swift in Sources */,
-				44DB7F4B2B0ABD4F0036C13D /* CalculationValueServiseImpl.swift in Sources */,
 				44F4D3282AC62C4B007BB6B8 /* SegmentType.swift in Sources */,
 				4443643E2A8815940040220C /* Constants.swift in Sources */,
 				444364312A86C0A00040220C /* AngleSegment.swift in Sources */,
@@ -476,6 +475,7 @@
 				4462288E2A71908800D04CE6 /* LengthSegment.swift in Sources */,
 				4457AB912A5B38B500EA547C /* ConverterApp.swift in Sources */,
 				446228862A71904500D04CE6 /* SpeedSegment.swift in Sources */,
+				442F36512B15AD38002FE757 /* AppState.swift in Sources */,
 				441255442A7502CD00858ADE /* String+Extension.swift in Sources */,
 				444364392A86C0EE0040220C /* StorageSegment.swift in Sources */,
 				44FC5B792A719C080000A5AD /* MeasurementFormatter+Extension.swift in Sources */,
@@ -559,6 +559,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -619,6 +620,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

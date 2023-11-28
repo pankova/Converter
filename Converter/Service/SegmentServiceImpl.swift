@@ -16,23 +16,16 @@ final class SegmentServiceImpl: SegmentService {
 
     private(set) var segments: [any UnitSegment]
 
-    private var currentSegmentIndex: Int {
-        didSet {
-            currentSegment.send(segments[currentSegmentIndex])
-        }
-    }
-
     init(storage: SegmentStorage = UserDefaultsSegmentStorage(),
          currentSegmentIndex: Int = 0) {
         self.storage = storage
         self.segments = storage.segments
-        self.currentSegmentIndex = currentSegmentIndex
         self.currentSegment = CurrentValueSubject(segments[currentSegmentIndex])
     }
 
     func changeCurrentSegment(to segment: any UnitSegment) {
-        guard let index = segments.firstIndex(where: { $0.type == segment.type }) else { return }
-        currentSegmentIndex = index
+        guard let segment = segments.first(where: { $0.type == segment.type }) else { return }
+        currentSegment.send(segment)
     }
 
     func updateSegmentUsage(for segment: any UnitSegment,

@@ -12,6 +12,8 @@ struct NumberView: View {
 
     @StateObject var viewModel: NumberViewModel
 
+    @EnvironmentObject var appState: AppState
+
     let buttonType: ButtonType
 
     private let generator = UIImpactFeedbackGenerator(style: .soft)
@@ -28,7 +30,8 @@ struct NumberView: View {
                 backgroundColor: buttonType.backgroundColor
             )
         )
-        .onAppear(perform: viewModel.viewDidAppear)
+        .onAppear { viewModel.state = appState }
+        .onFirstAppear(viewModel.viewDidAppear)
     }
 
     init(viewModel: @autoclosure @escaping () -> NumberViewModel,
@@ -52,10 +55,7 @@ struct NumberView: View {
 struct NumberView_Previews: PreviewProvider {
     static var previews: some View {
         NumberView(
-            viewModel: .init(
-                calculationService: AppContainer.shared.calculationService,
-                segmentService: AppContainer.shared.segmentService
-            ),
+            viewModel: .init(segmentService: AppContainer.shared.segmentService),
             buttonType: .invert
         )
     }

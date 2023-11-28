@@ -8,25 +8,16 @@
 import Combine
 import SwiftUI
 
+@MainActor
 final class NumberViewModel: ObservableObject {
 
-    private var calculationService: CalculationValueService
-    private var segmentService: SegmentService
+    var state: AppState!
 
-    private var value: String {
-        get {
-            calculationService.value.value
-        }
-        set {
-            calculationService.update(with: newValue)
-        }
-    }
+    private var segmentService: SegmentService
 
     private var subscriptions = Set<AnyCancellable>()
 
-    init(calculationService: CalculationValueService,
-         segmentService: SegmentService) {
-        self.calculationService = calculationService
+    init(segmentService: SegmentService) {
         self.segmentService = segmentService
     }
 
@@ -41,7 +32,7 @@ final class NumberViewModel: ObservableObject {
         case .clearAll:
             clear()
         case .invert:
-            calculationService.invert.send()
+            state.invert.send()
         case .plusMinus:
             changeSign()
         default:
@@ -52,31 +43,31 @@ final class NumberViewModel: ObservableObject {
     private func setupSubscriptions() {
         segmentService.currentSegment
             .sink(receiveValue: { [weak self] segment in
-                self?.value = segment.value
+                self?.state.value = segment.value
             })
             .store(in: &subscriptions)
     }
 
     private func addDigit(_ buttonType: ButtonType) {
-        if buttonType == .decimal && value.contains(buttonType.description) {
+        if buttonType == .decimal && state.value.contains(buttonType.description) {
             return
         }
 
-        let shouldClearZeroSymbol = buttonType != .decimal && value == Constants.initialValue
-        value = (shouldClearZeroSymbol ? "" : value) + buttonType.description
+        let shouldClearZeroSymbol = buttonType != .decimal && state.value == Constants.initialValue
+        state.value = (shouldClearZeroSymbol ? "" : state.value) + buttonType.description
     }
 
     private func changeSign() {
-        guard let numberValue = Double(value),
+        guard let numberValue = Double(state.value),
               numberValue != 0 else { return }
-        value = NumberFormatter.outputFormatter.string(from: -numberValue)
+        state.value = NumberFormatter.outputFormatter.string(from: -numberValue)
     }
 
     private func clearSymbol() {
-        value.count == 1 ? clear() : { value.removeLast() }()
+        state.value.count == 1 ? clear() : { state.value.removeLast() }()
     }
 
     private func clear() {
-        value = Constants.initialValue
+        state.value = Constants.initialValue
     }
 }

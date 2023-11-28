@@ -5,6 +5,7 @@
 //  Created by Mariya Pankova on 14.11.2023.
 //
 
+@MainActor
 final class ButtonPadViewModel {
 
     let buttonTypes: [[ButtonType]] = {

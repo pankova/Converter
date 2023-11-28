@@ -11,8 +11,7 @@ import SwiftUI
 struct UnitConverterView: View {
 
     @StateObject private var viewModel: UnitConverterViewModel
-
-    @Environment(\.scenePhase) private var scenePhase
+    @StateObject var appState = AppState()
 
     var body: some View {
         VStack(spacing: 0) {
@@ -27,7 +26,7 @@ struct UnitConverterView: View {
                         UnitsView(
                             unitData: viewModel.segment.initialUnitRowsData,
                             activeIndex: $viewModel.initialIndex,
-                            value: viewModel.value,
+                            value: appState.value,
                             visibleContentLength: geometry.size.height
                         )
                         UnitsView(
@@ -51,17 +50,24 @@ struct UnitConverterView: View {
             Divider()
                 .frame(height: 4)
                 .overlay(.white)
-            ButtonPadView()
+            ViewFactory.buttonPadView()
                 .padding([.top, .bottom], Padding.inner)
         }
+        .environmentObject(appState)
         .background(Color.accent3Highlighted.opacity(0.4))
-        .onAppear(perform: viewModel.recalculate)
+        .onAppear(perform: onAppear)
+        .onFirstAppear(viewModel.setupSubscriptions)
         .onChange(of: viewModel.initialIndex) { _ in viewModel.recalculate() }
         .onChange(of: viewModel.goalIndex) { _ in viewModel.recalculate() }
     }
 
     init(viewModel: @autoclosure @escaping () -> UnitConverterViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel())
+    }
+
+    func onAppear() {
+        viewModel.state = appState
+        viewModel.recalculate()
     }
 }
 
@@ -72,7 +78,6 @@ struct UnitConverterView_Previews: PreviewProvider {
                 initialIndex: 0,
                 goalIndex: 0,
                 convertedValue: "",
-                calculationService: AppContainer.shared.calculationService,
                 segmentService: AppContainer.shared.segmentService
             )
         )

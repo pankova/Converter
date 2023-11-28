@@ -8,6 +8,7 @@
 import Combine
 import SwiftUI
 
+@MainActor
 final class SegmentViewModel: ObservableObject {
     
     @Published var selected: any UnitSegment {

@@ -8,16 +8,17 @@
 import Combine
 import SwiftUI
 
+@MainActor
 final class UnitConverterViewModel: ObservableObject {
+
+    var state: AppState!
 
     @Published var initialIndex: Int
     @Published var goalIndex: Int
 
-    @Published private(set) var value: String
     @Published private(set) var convertedValue: String
     @Published private(set) var segment: any UnitSegment
 
-    private let calculationService: CalculationValueService
     private let segmentService: any SegmentService
     private var subscriptions = Set<AnyCancellable>()
 
@@ -25,21 +26,16 @@ final class UnitConverterViewModel: ObservableObject {
         initialIndex: Int,
         goalIndex: Int,
         convertedValue: String,
-        calculationService: CalculationValueService,
         segmentService: any SegmentService) {
             self.initialIndex = initialIndex
             self.goalIndex = goalIndex
-            self.value = calculationService.value.value
             self.segment = segmentService.currentSegment.value
             self.convertedValue = convertedValue
-            self.calculationService = calculationService
             self.segmentService = segmentService
-
-            setupSubscriptions()
         }
 
     func recalculate() {
-        guard value != Constants.initialValue else {
+        guard state.value != Constants.initialValue else {
             convertedValue = Constants.initialValue
             return
         }
@@ -47,16 +43,16 @@ final class UnitConverterViewModel: ObservableObject {
         convertedValue = ConverterService.convert(
             from: segment.initialUnitsValue[initialIndex],
             to: segment.goalUnitsValue[goalIndex],
-            value: value.doubleOrZero
+            value: state.value.doubleOrZero
         )
     }
 
-    private func setupSubscriptions() {
-        calculationService.value
-            .sink(receiveValue: { [weak self] value in self?.valueDidChanged(to: value) })
+    func setupSubscriptions() {
+        state.$value
+            .sink(receiveValue: { [weak self] _ in self?.recalculate() })
             .store(in: &subscriptions)
 
-        calculationService.invert
+        state.invert
             .sink(receiveValue: { [weak self] in self?.invert() })
             .store(in: &subscriptions)
 
@@ -67,11 +63,6 @@ final class UnitConverterViewModel: ObservableObject {
         NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
             .sink(receiveValue: { [weak self] _ in self?.segmentService.saveToStorage() })
             .store(in: &subscriptions)
-    }
-
-    private func valueDidChanged(to newValue: String) {
-        value = newValue
-        recalculate()
     }
 
     private func invert() {
@@ -93,12 +84,12 @@ final class UnitConverterViewModel: ObservableObject {
     }
 
     private func updateSegmentUsageIfValueChanged() {
-        guard value != Constants.initialValue,
-                value != Constants.initialValue + ButtonType.decimal.description else { return }
+        guard state.value != Constants.initialValue,
+              state.value != Constants.initialValue + ButtonType.decimal.description else { return }
         updateSegmentUsage()
     }
 
     private func updateSegmentUsage() {
-        segmentService.updateSegmentUsage(for: segment, with: value, convertedFrom: initialIndex, to: goalIndex)
+        segmentService.updateSegmentUsage(for: segment, with: state.value, convertedFrom: initialIndex, to: goalIndex)
     }
 }
