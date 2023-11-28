@@ -8,7 +8,8 @@
 import Combine
 
 final class AppState: ObservableObject {
-    @Published var value: String = ""
+    @Published var value: String = Constants.initialValue
 
-    var invert = PassthroughSubject<Void, Never>()
+    var invertUnits = PassthroughSubject<Void, Never>()
+    var action = PassthroughSubject<ButtonType, Never>()
 }

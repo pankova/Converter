@@ -55,19 +55,14 @@ struct UnitConverterView: View {
         }
         .environmentObject(appState)
         .background(Color.accent3Highlighted.opacity(0.4))
-        .onAppear(perform: onAppear)
-        .onFirstAppear(viewModel.setupSubscriptions)
-        .onChange(of: viewModel.initialIndex) { _ in viewModel.recalculate() }
-        .onChange(of: viewModel.goalIndex) { _ in viewModel.recalculate() }
+        .onFirstAppear {
+            viewModel.state = appState
+            viewModel.setupSubscriptions()
+        }
     }
 
     init(viewModel: @autoclosure @escaping () -> UnitConverterViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel())
-    }
-
-    func onAppear() {
-        viewModel.state = appState
-        viewModel.recalculate()
     }
 }
 

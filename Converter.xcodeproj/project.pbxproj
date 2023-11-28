@@ -54,7 +54,6 @@
 		44DB7F3B2B043F260036C13D /* UnitConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F3A2B043F260036C13D /* UnitConverterViewModel.swift */; };
 		44DB7F3D2B0440910036C13D /* SegmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F3C2B0440910036C13D /* SegmentViewModel.swift */; };
 		44DB7F3F2B04410D0036C13D /* ButtonPadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F3E2B04410D0036C13D /* ButtonPadViewModel.swift */; };
-		44DB7F412B0441C20036C13D /* NumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F402B0441C20036C13D /* NumberViewModel.swift */; };
 		44DB7F452B055E940036C13D /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F442B055E940036C13D /* ViewFactory.swift */; };
 		44DB7F472B055EAA0036C13D /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DB7F462B055EAA0036C13D /* AppContainer.swift */; };
 		44F4D3262AC62C3A007BB6B8 /* SegmentPurpose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4D3252AC62C3A007BB6B8 /* SegmentPurpose.swift */; };
@@ -128,7 +127,6 @@
 		44DB7F3A2B043F260036C13D /* UnitConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverterViewModel.swift; sourceTree = "<group>"; };
 		44DB7F3C2B0440910036C13D /* SegmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentViewModel.swift; sourceTree = "<group>"; };
 		44DB7F3E2B04410D0036C13D /* ButtonPadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPadViewModel.swift; sourceTree = "<group>"; };
-		44DB7F402B0441C20036C13D /* NumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewModel.swift; sourceTree = "<group>"; };
 		44DB7F442B055E940036C13D /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
 		44DB7F462B055EAA0036C13D /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		44F4D3252AC62C3A007BB6B8 /* SegmentPurpose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPurpose.swift; sourceTree = "<group>"; };
@@ -320,7 +318,6 @@
 			children = (
 				44DB7F3E2B04410D0036C13D /* ButtonPadViewModel.swift */,
 				44DB7F3C2B0440910036C13D /* SegmentViewModel.swift */,
-				44DB7F402B0441C20036C13D /* NumberViewModel.swift */,
 				44DB7F3A2B043F260036C13D /* UnitConverterViewModel.swift */,
 			);
 			path = ViewModel;
@@ -456,7 +453,6 @@
 				446228832A7071BC00D04CE6 /* UnitSegment.swift in Sources */,
 				446228902A71909300D04CE6 /* MassSegment.swift in Sources */,
 				4457ABBD2A5B445B00EA547C /* ButtonPadView.swift in Sources */,
-				44DB7F412B0441C20036C13D /* NumberViewModel.swift in Sources */,
 				4455A4A72A69E18A00849DB8 /* UnitView.swift in Sources */,
 				4462286E2A705C9000D04CE6 /* ConverterService.swift in Sources */,
 				4457ABBB2A5B442C00EA547C /* SegmentView.swift in Sources */,

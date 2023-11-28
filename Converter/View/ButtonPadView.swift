@@ -9,22 +9,28 @@ import SwiftUI
 
 struct ButtonPadView: View {
 
-    let viewModel: ButtonPadViewModel
+    @EnvironmentObject var appState: AppState
+
+    @StateObject private var viewModel: ButtonPadViewModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: Padding.inner) {
             ForEach(viewModel.buttonTypes, id: \.self) { row in
                 HStack(spacing: Padding.inner) {
                     ForEach(row,  id: \.self) { buttonType in
-                        ViewFactory.numberView(with: buttonType)
+                        NumberView(buttonType: buttonType)
                     }
                 }
             }
         }
+        .onFirstAppear {
+            viewModel.state = appState
+            viewModel.setupSubscriptions()
+        }
     }
 
     init(viewModel: @autoclosure @escaping () -> ButtonPadViewModel) {
-        self.viewModel = viewModel()
+        self._viewModel = StateObject(wrappedValue: viewModel())
     }
 }
 

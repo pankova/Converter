@@ -10,8 +10,6 @@ import SwiftUI
 
 struct NumberView: View {
 
-    @StateObject var viewModel: NumberViewModel
-
     @EnvironmentObject var appState: AppState
 
     let buttonType: ButtonType
@@ -21,7 +19,7 @@ struct NumberView: View {
     var body: some View {
         Button(buttonType.description) {
             generator.impactOccurred()
-            viewModel.action(buttonType)
+            appState.action.send(buttonType)
         }
         .buttonStyle(
             ButtonPadStyle(
@@ -30,13 +28,9 @@ struct NumberView: View {
                 backgroundColor: buttonType.backgroundColor
             )
         )
-        .onAppear { viewModel.state = appState }
-        .onFirstAppear(viewModel.viewDidAppear)
     }
 
-    init(viewModel: @autoclosure @escaping () -> NumberViewModel,
-         buttonType: ButtonType) {
-        self._viewModel = StateObject(wrappedValue: viewModel())
+    init(buttonType: ButtonType) {
         self.buttonType = buttonType
     }
 
@@ -54,9 +48,6 @@ struct NumberView: View {
 
 struct NumberView_Previews: PreviewProvider {
     static var previews: some View {
-        NumberView(
-            viewModel: .init(segmentService: AppContainer.shared.segmentService),
-            buttonType: .invert
-        )
+        NumberView(buttonType: .invert)
     }
 }

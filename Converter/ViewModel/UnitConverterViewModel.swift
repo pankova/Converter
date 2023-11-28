@@ -35,24 +35,16 @@ final class UnitConverterViewModel: ObservableObject {
         }
 
     func recalculate() {
-        guard state.value != Constants.initialValue else {
-            convertedValue = Constants.initialValue
-            return
-        }
-
-        convertedValue = ConverterService.convert(
-            from: segment.initialUnitsValue[initialIndex],
-            to: segment.goalUnitsValue[goalIndex],
-            value: state.value.doubleOrZero
-        )
+        recalculate(state.value)
     }
 
     func setupSubscriptions() {
         state.$value
-            .sink(receiveValue: { [weak self] _ in self?.recalculate() })
+            .dropFirst()
+            .sink(receiveValue: { [weak self] newValue in self?.recalculate(newValue) })
             .store(in: &subscriptions)
 
-        state.invert
+        state.invertUnits
             .sink(receiveValue: { [weak self] in self?.invert() })
             .store(in: &subscriptions)
 
@@ -61,8 +53,32 @@ final class UnitConverterViewModel: ObservableObject {
             .store(in: &subscriptions)
 
         NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
-            .sink(receiveValue: { [weak self] _ in self?.segmentService.saveToStorage() })
+            .sink(receiveValue: { [weak self] _ in
+                self?.updateSegmentUsage()
+                self?.segmentService.saveToStorage()
+            })
             .store(in: &subscriptions)
+
+        $initialIndex
+            .sink(receiveValue: { [weak self] _ in self?.recalculate() })
+            .store(in: &subscriptions)
+
+        $goalIndex
+            .sink(receiveValue: { [weak self] _ in self?.recalculate() })
+            .store(in: &subscriptions)
+    }
+
+    private func recalculate(_ value: String) {
+        guard value != Constants.initialValue else {
+            convertedValue = Constants.initialValue
+            return
+        }
+
+        convertedValue = ConverterService.convert(
+            from: segment.initialUnitsValue[initialIndex],
+            to: segment.goalUnitsValue[goalIndex],
+            value: value.doubleOrZero
+        )
     }
 
     private func invert() {
@@ -72,7 +88,6 @@ final class UnitConverterViewModel: ObservableObject {
 
         initialIndex = newInitialIndex
         goalIndex = newGoalIndex
-        recalculate()
     }
 
     private func reloadSegmentData(_ segment: any UnitSegment) {
@@ -80,7 +95,7 @@ final class UnitConverterViewModel: ObservableObject {
         self.segment = segment
         initialIndex = Constants.initialIndex
         goalIndex = Constants.goalIndex
-        recalculate()
+        state.value = segment.value
     }
 
     private func updateSegmentUsageIfValueChanged() {

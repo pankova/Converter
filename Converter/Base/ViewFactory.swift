@@ -17,15 +17,7 @@ struct ViewFactory {
     }
 
     @MainActor
-    static func numberView(with buttonType: ButtonType) -> NumberView {
-        NumberView(
-            viewModel: NumberViewModel(segmentService: segmentService),
-            buttonType: buttonType
-        )
-    }
-
-    @MainActor
     static func buttonPadView() -> ButtonPadView {
-        ButtonPadView(viewModel: ButtonPadViewModel())
+        ButtonPadView(viewModel: ButtonPadViewModel(segmentService: segmentService))
     }
 }
