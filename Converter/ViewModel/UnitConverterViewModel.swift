@@ -79,7 +79,7 @@ final class UnitConverterViewModel: ObservableObject {
 
         convertedValue = ConverterService.convert(
             from: segment.initialUnitsValue[initialIndex ?? self.initialIndex],
-            to: segment.goalUnitsValue[goalIndex ?? self.initialIndex],
+            to: segment.goalUnitsValue[goalIndex ?? self.goalIndex],
             value: value.doubleOrZero
         )
     }

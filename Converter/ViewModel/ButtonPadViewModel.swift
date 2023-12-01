@@ -51,10 +51,11 @@ final class ButtonPadViewModel: ObservableObject {
     }
 
     private func addDigit(_ buttonType: ButtonType) {
-        if buttonType == .decimal && state.value.contains(buttonType.description) {
+        if buttonType == .decimal && state.value.contains(buttonType.description)
+            || buttonType == .digit(.zero) && state.value == buttonType.description {
             return
         }
-
+        
         let shouldClearZeroSymbol = buttonType != .decimal && state.value == Constants.initialValue
         state.value = (shouldClearZeroSymbol ? "" : state.value) + buttonType.description
     }

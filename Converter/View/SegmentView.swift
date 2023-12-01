@@ -11,9 +11,9 @@ import SwiftUI
 struct SegmentView: View {
 
     @StateObject private var viewModel: SegmentViewModel
-    
+
     private let generator = UIImpactFeedbackGenerator(style: .light)
-    
+
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             ScrollViewReader { proxy in
@@ -41,7 +41,7 @@ struct SegmentView: View {
                                             viewModel.selected = segment
                                             generator.impactOccurred()
                                             withAnimation {
-                                                proxy.scrollTo(segment, anchor: .center)
+                                                proxy.scrollTo(segment.title, anchor: .center)
                                             }
                                         }
                                 )
