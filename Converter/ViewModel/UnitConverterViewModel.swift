@@ -35,13 +35,13 @@ final class UnitConverterViewModel: ObservableObject {
         }
 
     func recalculate() {
-        recalculate(state.value)
+        recalculate(value: state.value)
     }
 
     func setupSubscriptions() {
         state.$value
             .dropFirst()
-            .sink(receiveValue: { [weak self] newValue in self?.recalculate(newValue) })
+            .sink(receiveValue: { [weak self] in self?.recalculate(value: $0) })
             .store(in: &subscriptions)
 
         state.invertUnits
@@ -60,23 +60,26 @@ final class UnitConverterViewModel: ObservableObject {
             .store(in: &subscriptions)
 
         $initialIndex
-            .sink(receiveValue: { [weak self] _ in self?.recalculate() })
+            .sink(receiveValue: { [weak self] in self?.recalculate(initialIndex: $0) })
             .store(in: &subscriptions)
 
         $goalIndex
-            .sink(receiveValue: { [weak self] _ in self?.recalculate() })
+            .sink(receiveValue: { [weak self] in self?.recalculate(goalIndex: $0) })
             .store(in: &subscriptions)
     }
 
-    private func recalculate(_ value: String) {
+    private func recalculate(value: String? = nil,
+                             initialIndex: Int? = nil,
+                             goalIndex: Int? = nil) {
+        let value = value ?? state.value
         guard value != Constants.initialValue else {
             convertedValue = Constants.initialValue
             return
         }
 
         convertedValue = ConverterService.convert(
-            from: segment.initialUnitsValue[initialIndex],
-            to: segment.goalUnitsValue[goalIndex],
+            from: segment.initialUnitsValue[initialIndex ?? self.initialIndex],
+            to: segment.goalUnitsValue[goalIndex ?? self.initialIndex],
             value: value.doubleOrZero
         )
     }
