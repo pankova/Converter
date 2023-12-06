@@ -71,15 +71,24 @@ final class UnitConverterViewModel: ObservableObject {
     private func recalculate(value: String? = nil,
                              initialIndex: Int? = nil,
                              goalIndex: Int? = nil) {
+        let initialIndex = initialIndex ?? self.initialIndex
+        let goalIndex = goalIndex ?? self.goalIndex
+
+        guard initialIndex < segment.initialUnits.count,
+              goalIndex < segment.goalUnits.count else {
+            return
+        }
+
         let value = value ?? state.value
+
         guard value != Constants.initialValue else {
             convertedValue = Constants.initialValue
             return
         }
 
         convertedValue = ConverterService.convert(
-            from: segment.initialUnitsValue[initialIndex ?? self.initialIndex],
-            to: segment.goalUnitsValue[goalIndex ?? self.goalIndex],
+            from: segment.initialUnitsValue[initialIndex],
+            to: segment.goalUnitsValue[goalIndex],
             value: value.doubleOrZero
         )
     }
