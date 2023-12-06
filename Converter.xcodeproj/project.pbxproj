@@ -11,6 +11,7 @@
 		441608522A7A03110059B215 /* UnitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441608512A7A03110059B215 /* UnitsView.swift */; };
 		442F36512B15AD38002FE757 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F36502B15AD38002FE757 /* AppState.swift */; };
 		442F36532B15AD85002FE757 /* OnFirstAppearModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F36522B15AD85002FE757 /* OnFirstAppearModifier.swift */; };
+		442F36552B1CEF48002FE757 /* PressureSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F36542B1CEF48002FE757 /* PressureSegment.swift */; };
 		4443642D2A8564D20040220C /* Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4443642C2A8564D20040220C /* Padding.swift */; };
 		4443642F2A8564E80040220C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4443642E2A8564E80040220C /* Font.swift */; };
 		444364312A86C0A00040220C /* AngleSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444364302A86C0A00040220C /* AngleSegment.swift */; };
@@ -81,6 +82,7 @@
 		441608512A7A03110059B215 /* UnitsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitsView.swift; sourceTree = "<group>"; };
 		442F36502B15AD38002FE757 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		442F36522B15AD85002FE757 /* OnFirstAppearModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnFirstAppearModifier.swift; sourceTree = "<group>"; };
+		442F36542B1CEF48002FE757 /* PressureSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureSegment.swift; sourceTree = "<group>"; };
 		4443642C2A8564D20040220C /* Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Padding.swift; sourceTree = "<group>"; };
 		4443642E2A8564E80040220C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		444364302A86C0A00040220C /* AngleSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleSegment.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				444364322A86C0B40040220C /* DurationSegment.swift */,
 				4462288F2A71909300D04CE6 /* MassSegment.swift */,
 				446228892A71906E00D04CE6 /* VolumeSegment.swift */,
+				442F36542B1CEF48002FE757 /* PressureSegment.swift */,
 				444364362A86C0DC0040220C /* FuelEfficiencySegment.swift */,
 				444364382A86C0EE0040220C /* StorageSegment.swift */,
 				444364342A86C0C50040220C /* EnergySegment.swift */,
@@ -468,6 +471,7 @@
 				4443643B2A86C2420040220C /* PowerSegment.swift in Sources */,
 				44F4D32A2AC62C5E007BB6B8 /* SegmentStorage.swift in Sources */,
 				4455A4A12A69E0AC00849DB8 /* FrameModifier.swift in Sources */,
+				442F36552B1CEF48002FE757 /* PressureSegment.swift in Sources */,
 				4462288E2A71908800D04CE6 /* LengthSegment.swift in Sources */,
 				4457AB912A5B38B500EA547C /* ConverterApp.swift in Sources */,
 				446228862A71904500D04CE6 /* SpeedSegment.swift in Sources */,

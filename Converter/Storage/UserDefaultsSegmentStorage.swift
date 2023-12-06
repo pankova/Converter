@@ -22,6 +22,7 @@ final class UserDefaultsSegmentStorage: SegmentStorage {
         FuelEfficiencySegment(),
         StorageSegment(),
         EnergySegment(),
+        PressureSegment(),
         AngleSegment(),
         PowerSegment(),
     ]

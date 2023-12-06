@@ -18,4 +18,5 @@ enum SegmentType: String {
     case angle = "Angle"
     case temperature = "Temperature"
     case area = "Area"
+    case pressure = "Pressure"
 }
